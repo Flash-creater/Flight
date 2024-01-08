@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/web/login_enter.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/pages/admin/airline-list.jsp" value="file://$PROJECT_DIR$/web/pages/admin" />
+        <entry key="file://$PROJECT_DIR$/web/pages/admin/aside.jsp" value="file://$PROJECT_DIR$/web/pages/admin" />
+        <entry key="file://$PROJECT_DIR$/web/pages/agency/500.jsp" value="file://$PROJECT_DIR$/web/pages/agency" />
+        <entry key="file://$PROJECT_DIR$/web/pages/aside.jsp" value="file://$PROJECT_DIR$/web/pages" />
+        <entry key="file://$PROJECT_DIR$/web/pages/login/traveller.jsp" value="file://$PROJECT_DIR$/web/pages/login" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/404.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/agency-info.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/aside.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/if'.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/invoice.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/myAgency.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/myAgencyOrder-info.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/order-info.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/order-list.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/password.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/ticket-info.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+        <entry key="file://$PROJECT_DIR$/web/pages/traveller/traveller-info.jsp" value="file://$PROJECT_DIR$/web/pages/traveller" />
+      </map>
+    </option>
+  </component>
+</project>
