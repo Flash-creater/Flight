@@ -8,10 +8,16 @@ import java.util.Date;
 public class Flight implements Serializable {
     //航班编号
     private String flightId;
+    private String company;
+    private String craftType;
     //出发城市
     private String departureCity;
+    private String departureAirport;
+    private String dCode;
     //到达城市
     private String finalCity;
+    private String arrivalAirport;
+    private String aCode;
     //出发时间
     private Date departureTime;
     private String departureTimeStr;
@@ -44,6 +50,54 @@ public class Flight implements Serializable {
         return flightId;
     }
 
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getCraftType() {
+        return craftType;
+    }
+
+    public void setCraftType(String craftType) {
+        this.craftType = craftType;
+    }
+
+    public String getDepartureAirport() {
+        return departureAirport;
+    }
+
+    public void setDepartureAirport(String departureAirport) {
+        this.departureAirport = departureAirport;
+    }
+
+    public String getdCode() {
+        return dCode;
+    }
+
+    public void setdCode(String dCode) {
+        this.dCode = dCode;
+    }
+
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    public void setArrivalAirport(String arrivalAirport) {
+        this.arrivalAirport = arrivalAirport;
+    }
+
+    public String getaCode() {
+        return aCode;
+    }
+
+    public void setaCode(String aCode) {
+        this.aCode = aCode;
+    }
+
     public void setFlightId(String flightId) {
         this.flightId = flightId;
     }
@@ -66,7 +120,7 @@ public class Flight implements Serializable {
 
     public Date getDepartureTime() throws ParseException {
         if(departureTimeStr != null){
-            SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            SimpleDateFormat df=new SimpleDateFormat("HH:mm:ss");
             return df.parse(departureTimeStr);
         }
         return departureTime;
@@ -78,7 +132,7 @@ public class Flight implements Serializable {
 
     public String getDepartureTimeStr() {
         if(departureTime != null){
-            SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            SimpleDateFormat df=new SimpleDateFormat("HH:mm:ss");
             String time=df.format(departureTime);
             return time;
         }
