@@ -1,6 +1,7 @@
 package com.tyut.domain;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,35 +20,25 @@ public class Flight implements Serializable {
     private String arrivalAirport;
     private String aCode;
     //出发时间
-    private Date departureTime;
-    private String departureTimeStr;
-    //到达时间
-    private Date arrivalTime;
-    private String arrivalTimeStr;
-
-    //获取航班对应的座位信息
-    private Beat beat;
-    //获取对应的旅客信息
-    private Traveller traveller;
-
-    public Traveller getTraveller() {
-        return traveller;
-    }
-
-    public void setTraveller(Traveller traveller) {
-        this.traveller = traveller;
-    }
-
-    public Beat getBeat() {
-        return beat;
-    }
-
-    public void setBeat(Beat beat) {
-        this.beat = beat;
-    }
+    private Time departureTime;
+    private Time arrivalTime;
+    private int firstPrice;
+    //头等舱的座位数
+    private int firstCount;
+    //商务舱的价格
+    private int businessPrice;
+    //商务舱的座位数
+    private int businessCount;
+    private int economyPrice;
+    //经济舱的座位数
+    private int economyCount;
 
     public String getFlightId() {
         return flightId;
+    }
+
+    public void setFlightId(String flightId) {
+        this.flightId = flightId;
     }
 
     public String getCompany() {
@@ -66,6 +57,14 @@ public class Flight implements Serializable {
         this.craftType = craftType;
     }
 
+    public String getDepartureCity() {
+        return departureCity;
+    }
+
+    public void setDepartureCity(String departureCity) {
+        this.departureCity = departureCity;
+    }
+
     public String getDepartureAirport() {
         return departureAirport;
     }
@@ -80,6 +79,14 @@ public class Flight implements Serializable {
 
     public void setdCode(String dCode) {
         this.dCode = dCode;
+    }
+
+    public String getFinalCity() {
+        return finalCity;
+    }
+
+    public void setFinalCity(String finalCity) {
+        this.finalCity = finalCity;
     }
 
     public String getArrivalAirport() {
@@ -98,87 +105,67 @@ public class Flight implements Serializable {
         this.aCode = aCode;
     }
 
-    public void setFlightId(String flightId) {
-        this.flightId = flightId;
-    }
-
-    public String getDepartureCity() {
-        return departureCity;
-    }
-
-    public void setDepartureCity(String departureCity) {
-        this.departureCity = departureCity;
-    }
-
-    public String getFinalCity() {
-        return finalCity;
-    }
-
-    public void setFinalCity(String finalCity) {
-        this.finalCity = finalCity;
-    }
-
-    public Date getDepartureTime() throws ParseException {
-        if(departureTimeStr != null){
-            SimpleDateFormat df=new SimpleDateFormat("HH:mm:ss");
-            return df.parse(departureTimeStr);
-        }
+    public Time getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(Date departureTime) {
+    public void setDepartureTime(Time departureTime) {
         this.departureTime = departureTime;
     }
 
-    public String getDepartureTimeStr() {
-        if(departureTime != null){
-            SimpleDateFormat df=new SimpleDateFormat("HH:mm:ss");
-            String time=df.format(departureTime);
-            return time;
-        }
-        return departureTimeStr;
-    }
-
-    public void setDepartureTimeStr(String departureTimeStr) {
-        this.departureTimeStr = departureTimeStr;
-    }
-
-    public Date getArrivalTime() throws ParseException {
-        if(arrivalTimeStr != null){
-            SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            return df.parse(arrivalTimeStr);
-        }
+    public Time getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(Date arrivalTime) {
+    public void setArrivalTime(Time arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public String getArrivalTimeStr() {
-        if(arrivalTime != null){
-            SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            String time=df.format(arrivalTime);
-            return time;
-        }
-        return arrivalTimeStr;
+    public int getFirstPrice() {
+        return firstPrice;
     }
 
-    public void setArrivalTimeStr(String arrivalTimeStr) {
-        this.arrivalTimeStr = arrivalTimeStr;
+    public void setFirstPrice(int firstPrice) {
+        this.firstPrice = firstPrice;
     }
 
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "flightId='" + flightId + '\'' +
-                ", departureCity='" + departureCity + '\'' +
-                ", finalCity='" + finalCity + '\'' +
-                ", departureTime=" + departureTime +
-                ", departureTimeStr='" + departureTimeStr + '\'' +
-                ", arrivalTime=" + arrivalTime +
-                ", arrivalTimeStr='" + arrivalTimeStr + '\'' +
-                ", beat=" + beat +
-                '}';
+    public int getFirstCount() {
+        return firstCount;
+    }
+
+    public void setFirstCount(int firstCount) {
+        this.firstCount = firstCount;
+    }
+
+    public int getBusinessPrice() {
+        return businessPrice;
+    }
+
+    public void setBusinessPrice(int businessPrice) {
+        this.businessPrice = businessPrice;
+    }
+
+    public int getBusinessCount() {
+        return businessCount;
+    }
+
+    public void setBusinessCount(int businessCount) {
+        this.businessCount = businessCount;
+    }
+
+    public int getEconomyPrice() {
+        return economyPrice;
+    }
+
+    public void setEconomyPrice(int economyPrice) {
+        this.economyPrice = economyPrice;
+    }
+
+    public int getEconomyCount() {
+        return economyCount;
+    }
+
+    public void setEconomyCount(int economyCount) {
+        this.economyCount = economyCount;
     }
 }

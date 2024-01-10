@@ -7,7 +7,10 @@
             and departureCity like concat('%',#{departureCity},'%')
         </if>
         <if test="finalCity!=null and address!=''">
-            and finalCity=#{finalCity}
+            and finalCity like concat('%',#{finalcity},'%')
         </if>
+    </select>
+    <select id="findAllFlight" resultType="Flight">
+        select * from flightinfo where 1=1
     </select>
 </mapper>
