@@ -21,4 +21,10 @@ public class FlightController {
         model.addAttribute("flights", flights);
         return "showFlight";
     }
+    @RequestMapping("/showByDepAndFin")
+    public String showByDepAndFin(String departureCity,String finalCity, Model model, HttpServletRequest httpServletRequest){
+        List<Flight> flights = flightService.findByDepAndFin(departureCity,finalCity);
+        model.addAttribute("flights",flights);
+        return ""; //给到需要用出发和终点的城市
+    }
 }

@@ -16,4 +16,7 @@ public class FlightServiceImpl implements FlightService {
         return flightMapper.findAllFlight();
     }
 
+    public List <Flight> findByDepAndFin(String departureCity, String FinalCity){
+        return flightMapper.findByDepAndFin(departureCity,FinalCity);
+    }
 }
