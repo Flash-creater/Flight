@@ -38,4 +38,15 @@
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/pages/login/admin.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

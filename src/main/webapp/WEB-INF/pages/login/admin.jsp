@@ -36,7 +36,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">航空公司登陆</p>
         <div class="text-center" style="color:red" id="errMsg">${errMsg}</div>
-        <form action="${pageContext.request.contextPath}/login/admin" method="post">
+        <form action="${pageContext.request.contextPath}/admin/isLogin" method="post">
             <div class="form-group has-feedback">
                 <input type="text" name="name" class="form-control" id="name"
                        placeholder="用户名"> <span
