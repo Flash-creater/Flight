@@ -16,4 +16,28 @@
     <update id="handlerAOrder" parameterType="AgencyOrder">
         update agency_order set handlerTime = #{handlerTime}, orderStatus = 1 where aid = #{aid} and tid = #{tid} and routeId = #{routeId}
     </update>
+    <select id="findFlightById" parameterType="String" resultType="Flight">
+        select * from flightinfo where flightId=#{flightId}
+    </select>
+    <select id="findFOrderByIds" parameterType="FlightOrder" resultType="FlightOrder">
+        select * from flightorder where aid=#{aid} and routeId = #{routeId} and tid = #{tid} and flightId = #{flightId}
+    </select>
+    <insert id="addFOrder" parameterType="FlightOrder">
+        insert into flightorder(aid, tid, routeId, flightId, orderPrice, beat) values (#{aid},#{tid},#{routeId},#{flightId},#{orderPrice},#{beat})
+    </insert>
+    <update id="subFirstBeatCount" parameterType="String">
+        update flightinfo set firstCount=firstCount-1 where flightId=#{flightId}
+    </update>
+    <update id="subBusinessBeatCount" parameterType="String">
+        update flightinfo set businessCount=businessCount-1 where flightId=#{flightId}
+    </update>
+    <update id="subEconomyBeatCount" parameterType="String">
+        update flightinfo set economyCount=economyCount-1 where flightId=#{flightId}
+    </update>
+    <select id="findFOrder" parameterType="String" resultType="FlightOrder">
+        select * from flightorder where aid=#{aid}
+    </select>
+    <select id="findBeatByFid" parameterType="String" resultType="">
+
+    </select>
 </mapper>
