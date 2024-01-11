@@ -4,5 +4,16 @@
     <select id="selectPassword" parameterType="String" resultType="agency">
         select * from agency where agencyName = #{agencyName}
     </select>
-
+    <select id="findAllFlight" resultType="Flight">
+        select * from flightinfo where 1=1
+    </select>
+    <select id="findFlightByDepCity" parameterType="Flight" resultType="Flight">
+        select * from flightinfo where departureCity=#{departureCity}
+    </select>
+    <insert id="addOrder" parameterType="FlightOrder">
+        insert into flightorder (aid, tid, routeId, flightId, payStatus, orderPrice, beat, payTime) values (#{aid},#{tid},#{routeId},#{flightId},#{payStatus},#{orderPrice},#{beat},#{payTime})
+    </insert>
+    <update id="handlerAOrder" parameterType="AgencyOrder">
+        update agency_order set handlerTime = #{handlerTime}, orderStatus = 1 where aid = #{aid} and tid = #{tid} and routeId = #{routeId}
+    </update>
 </mapper>
