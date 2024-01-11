@@ -14,83 +14,83 @@ public class AgencyDaoImpl implements AgencyDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     //查询所有的航班信息
     @Override
-    public List<Flight> findAllFlight() throws Exception{
-        String sql  = "select * from airline";
-        List<Flight> flights = null;
-        flights = template.query(sql, new BeanPropertyRowMapper<Flight>(Flight.class));
-
-        return flights;
-    }
+//    public List<Flight> findAllFlight() throws Exception{
+//        String sql  = "select * from airline";
+//        List<Flight> flights = null;
+//        flights = template.query(sql, new BeanPropertyRowMapper<Flight>(Flight.class));
+//
+//        return flights;
+//    }
     //根据出发的城市查找对应的航班
     @Override
-    public List<Flight> findFlightByCity(String city) throws Exception{
-        String sql  = "select * from airline where departureCity = ?";
-        List<Flight> flights = null;
-        flights = template.query(sql, new BeanPropertyRowMapper<Flight>(Flight.class), city);
-        return flights;
-    }
+//    public List<Flight> findFlightByCity(String city) throws Exception{
+//        String sql  = "select * from airline where departureCity = ?";
+//        List<Flight> flights = null;
+//        flights = template.query(sql, new BeanPropertyRowMapper<Flight>(Flight.class), city);
+//        return flights;
+//    }
     //根据fid查找到对应的flight
     @Override
-    public Flight findFlightById(String fid) throws Exception{
-        String sql  = "select * from airline where flightId = ?";
-        Flight flight = null;
-        flight = template.queryForObject(sql, new BeanPropertyRowMapper<Flight>(Flight.class), fid);
-        return flight;
-    }
+//    public Flight findFlightById(String fid) throws Exception{
+//        String sql  = "select * from airline where flightId = ?";
+//        Flight flight = null;
+//        flight = template.queryForObject(sql, new BeanPropertyRowMapper<Flight>(Flight.class), fid);
+//        return flight;
+//    }
 //    根据对应的routeId，aid, tid,fid查找唯一的订单
     @Override
-    public FlightOrder findFOrderByIds(String aid, String routeId, int tid, String flightId) {
-        FlightOrder fo = null;
-        String sql = "select * from flight_order where aid=? and routeId = ? and tid = ? and flightId = ?";
-        try {
-            fo = template.queryForObject(sql, new BeanPropertyRowMapper<FlightOrder>(FlightOrder.class),aid, routeId, tid, flightId);
-            return fo;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public FlightOrder findFOrderByIds(String aid, String routeId, int tid, String flightId) {
+//        FlightOrder fo = null;
+//        String sql = "select * from flight_order where aid=? and routeId = ? and tid = ? and flightId = ?";
+//        try {
+//            fo = template.queryForObject(sql, new BeanPropertyRowMapper<FlightOrder>(FlightOrder.class),aid, routeId, tid, flightId);
+//            return fo;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
     //1.2 对agencyOrder中的orderStatus 和 handlerTime进行修改
     @Override
-    public void handlerAOrder(String aid, String routeId, int tid, Date handlerTime) throws Exception{
-        String sql = "update agency_order set handlerTime = ?, orderStatus = 1 where aid = ? and tid = ? and routeId = ?";
-        template.update(sql, handlerTime, aid, tid, routeId);
-    }
+//    public void handlerAOrder(String aid, String routeId, int tid, Date handlerTime) throws Exception{
+//        String sql = "update agency_order set handlerTime = ?, orderStatus = 1 where aid = ? and tid = ? and routeId = ?";
+//        template.update(sql, handlerTime, aid, tid, routeId);
+//    }
     //2.添加flightOrder的订单
     @Override
-    public boolean addFOrder(String aid, String routeId, int tid, String flightId, String beat, double price) {
-        String sql = "insert into flight_order(aid, tid, routeId, flightId, orderPrice, beat) values(?,?,?,?,?,?)";
-        int count = template.update(sql,aid, tid, routeId, flightId, price, beat);
-        if(count > 0){
-            return true;
-        }{
-            return false;
-        }
-    }
+//    public boolean addFOrder(String aid, String routeId, int tid, String flightId, String beat, double price) {
+//        String sql = "insert into flight_order(aid, tid, routeId, flightId, orderPrice, beat) values(?,?,?,?,?,?)";
+//        int count = template.update(sql,aid, tid, routeId, flightId, price, beat);
+//        if(count > 0){
+//            return true;
+//        }{
+//            return false;
+//        }
+//    }
     //减少航班对应舱位的座位数
     @Override
-    public void subFirstBeatCount(String flightId) throws Exception{
-        String sql = "update beat set firstCount=firstCount-1 where flightId = ?";
-        template.update(sql, flightId);
-    }
+//    public void subFirstBeatCount(String flightId) throws Exception{
+//        String sql = "update beat set firstCount=firstCount-1 where flightId = ?";
+//        template.update(sql, flightId);
+//    }
     @Override
-    public void subBusinessBeatCount(String flightId) throws Exception{
-        String sql = "update beat set businessCount=businessCount-1 where flightId = ?";
-        template.update(sql, flightId);
-    }
+//    public void subBusinessBeatCount(String flightId) throws Exception{
+//        String sql = "update beat set businessCount=businessCount-1 where flightId = ?";
+//        template.update(sql, flightId);
+//    }
     @Override
-    public void subEconomyBeatCount(String flightId) throws Exception{
-        String sql = "update beat set economyCount=economyCount-1 where flightId = ?";
-        template.update(sql, flightId);
-    }
+//    public void subEconomyBeatCount(String flightId) throws Exception{
+//        String sql = "update beat set economyCount=economyCount-1 where flightId = ?";
+//        template.update(sql, flightId);
+//    }
     //根据aid查找对应的flightOrder订单
     @Override
-    public List<FlightOrder> findFOrder(String aid) throws Exception{
-        String sql = "select * from flight_order where aid = ?";
-        List<FlightOrder> flightOrders = null;
-        flightOrders = template.query(sql, new BeanPropertyRowMapper<FlightOrder>(FlightOrder.class), aid);
-        return flightOrders;
-    }
+//    public List<FlightOrder> findFOrder(String aid) throws Exception{
+//        String sql = "select * from flight_order where aid = ?";
+//        List<FlightOrder> flightOrders = null;
+//        flightOrders = template.query(sql, new BeanPropertyRowMapper<FlightOrder>(FlightOrder.class), aid);
+//        return flightOrders;
+//    }
 
     //根据航班的编号flightId查询出所对应的座位信息
     @Override
