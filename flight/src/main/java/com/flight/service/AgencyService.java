@@ -7,14 +7,11 @@ import com.flight.domain.AgencyOrder;
 import java.util.List;
 
 public interface AgencyService {
-    //查找所有的航班
-    List<Flight> findAllFlight() throws Exception;
     //根据agencyId查找对应的游客
     List<Traveller> findAllTraveller(String id) throws Exception;
     //旅行社 查询 旅客选择的旅行社的路线 的订单 的详情
     AgencyOrder findAgencyOrderByIds(Integer tid, String aid, String routeId) throws Exception;
-    //根据出发的城市查找对应的航班
-    List<Flight> findFlightByCity(String city) throws Exception;
+
     //根据 tid 和 fid 查找到对应的信息
     Flight findFlightDetail(String fid, String tid) throws Exception;
 //    根据对应的routeId，aid, tid,fid查找唯一的订单
