@@ -46,7 +46,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">新用户注册</p>
         <div class="text-center" style="color:red" id="errMsg">${err_info}</div>
-        <form action="${pageContext.request.contextPath}/register/traveller" method="post" id="registerForm">
+        <form action="${pageContext.request.contextPath}/traveller/register" method="post" id="registerForm">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="用户名" name="userName" id="userName">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -54,6 +54,15 @@
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" minlength="8" maxlength="16" placeholder="密码：单词字符长度8-16位" name="password" id="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <select id="sex" name="sex" class="form-control">
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+<%--                <input type="radio" class="form-control" name="sex" id="man" value="1">男--%>
+<%--                <input type="radio" class="form-control" name="sex" id="" value="1">--%>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Email" name="email" id="email">
@@ -81,7 +90,7 @@
         </form>
 
 
-        <a href="${pageContext.request.contextPath}/login/traveller.jsp" class="text-center">我有账号，现在就去登录</a>
+        <a href="${pageContext.request.contextPath}/admin/travellerLogin" class="text-center">我有账号，现在就去登录</a>
     </div>
     <!-- /.form-box -->
 </div>

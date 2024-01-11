@@ -36,7 +36,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">旅客登陆</p>
         <div class="text-center" style="color:red" id="info">${errMsg}</div>
-        <form action="${pageContext.request.contextPath}/login/traveller" method="post">
+        <form action="${pageContext.request.contextPath}/traveller/isLogin" method="post">
             <div class="form-group has-feedback">
 
                 <input type="email" name="email" class="form-control"
@@ -63,12 +63,12 @@
         </form>
         <div class="social-auth-links text-center">
             <p>- 或者 -</p>
-            <a href="${pageContext.request.contextPath}/pages/login/agency.jsp" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-cc"></i> 旅行社登录</a>
-            <a href="${pageContext.request.contextPath}/pages/login/admin.jsp" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-plane"></i> 航空公司登录</a>
+            <a href="${pageContext.request.contextPath}/traveller/agencyLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-cc"></i> 旅行社登录</a>
+            <a href="${pageContext.request.contextPath}/traveller/adminLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-plane"></i> 航空公司登录</a>
         </div>
-        <a href="${pageContext.request.contextPath}/pages/forgetPassword.jsp"  id="forgetPassword">忘记密码</a><br>
+        <a href="${pageContext.request.contextPath}/traveller/toForgetPassword"  id="forgetPassword">忘记密码</a><br>
 
-        <a href="${pageContext.request.contextPath}/pages/register/register.jsp" class="text-center">新用户注册</a>
+        <a href="${pageContext.request.contextPath}/traveller/toRegister" class="text-center">新用户注册</a>
     </div>
     <!-- /.login-box-body -->
 </div>

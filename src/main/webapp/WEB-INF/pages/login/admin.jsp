@@ -57,8 +57,8 @@
         </form>
         <div class="social-auth-links text-center">
             <p>- 或者 -</p>
-            <a href="${pageContext.request.contextPath}/pages/login/traveller.jsp" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-male"></i> 旅客登录</a>
-            <a href="${pageContext.request.contextPath}/pages/login/agency.jsp" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-cc"></i> 旅行社登录</a>
+            <a href="${pageContext.request.contextPath}/admin/travellerLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-male"></i> 旅客登录</a>
+            <a href="${pageContext.request.contextPath}/admin/agencyLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-cc"></i> 旅行社登录</a>
         </div>
     </div>
     <!-- /.login-box-body -->

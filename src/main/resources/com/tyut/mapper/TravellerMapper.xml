@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tyut.mapper.TravellerMapper">
+    <select id="selectPassword" parameterType="String" resultType="traveller">
+        select * from traveller where email = #{email}
+    </select>
+    <insert id="addTraveller" parameterType="traveller">
+        insert into traveller(userName, trueName, password, email, phone, sex, ID_Card) values(#{userName},#{trueName},#{password},#{email},#{phone},#{sex},#{ID_Card})
+    </insert>
+
+</mapper>

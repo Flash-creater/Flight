@@ -1,28 +1,28 @@
 package com.tyut.controller;
 
-import com.tyut.domain.Admin;
-import com.tyut.service.AdminService;
+import com.tyut.domain.Agency;
+import com.tyut.service.AgencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/agency")
+public class AgencyController {
     @Autowired
-    private AdminService adminService;
+    private AgencyService agencyService;
 
     @RequestMapping("/isLogin")
-    public ModelAndView isLogin(Admin admin){
-        boolean flag = adminService.isLogin(admin);
+    public ModelAndView isLogin(Agency agency){
+        boolean flag = agencyService.isLogin(agency);
         System.out.println(flag);
         if (flag){
             return mainJsp();
         }
         else {
             ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("login/admin");
+            modelAndView.setViewName("login/agency");
             modelAndView.addObject("errMsg","登录失败");
             return modelAndView;
         }
@@ -31,7 +31,7 @@ public class AdminController {
     @RequestMapping("/main")
     public ModelAndView mainJsp() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("admin/main");
+        modelAndView.setViewName("agency/main");
         return modelAndView;
     }
 
@@ -42,11 +42,10 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping("/agencyLogin")
+    @RequestMapping("/adminLogin")
     public ModelAndView toAgencyLogin(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login/agency");
+        modelAndView.setViewName("login/admin");
         return modelAndView;
     }
-
 }

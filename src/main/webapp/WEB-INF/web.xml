@@ -47,6 +47,6 @@
         <url-pattern>*.jpg</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>/WEB-INF/pages/login/admin.jsp</welcome-file>
+        <welcome-file>/WEB-INF/pages/login/traveller.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
