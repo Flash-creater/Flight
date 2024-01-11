@@ -37,7 +37,16 @@
     <select id="findFOrder" parameterType="String" resultType="FlightOrder">
         select * from flightorder where aid=#{aid}
     </select>
-    <select id="findBeatByFid" parameterType="String" resultType="">
-
+    <select id="findTraById" parameterType="Integer" resultType="Traveller">
+        select * from traveller where id = #{id}
+    </select>
+    <select id="findAgencyOrder" parameterType="AgencyOrder" resultType="AgencyOrder">
+        select * from agency_order where aid=#{aid} and tid=#{tid} and routeId=#{routeId}
+    </select>
+    <select id="findOrderById" parameterType="AgencyOrder" resultType="AgencyOrder">
+        select * from agency_order where aid=#{aid} and tid=#{tid} and routeId=#{routeId}
+    </select>
+    <select id="findAgencyById" parameterType="Integer" resultType="Agency">
+        select * from agency where id=#{id}
     </select>
 </mapper>
