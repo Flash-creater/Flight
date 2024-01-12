@@ -36,7 +36,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">航空公司登陆</p>
         <div class="text-center" style="color:red" id="errMsg">${errMsg}</div>
-        <form action="${pageContext.request.contextPath}/admin/isLogin" method="post">
+        <form action="${pageContext.request.contextPath}/adminController/isLogin" method="post">
             <div class="form-group has-feedback">
                 <input type="text" name="name" class="form-control" id="name"
                        placeholder="用户名"> <span
@@ -57,8 +57,8 @@
         </form>
         <div class="social-auth-links text-center">
             <p>- 或者 -</p>
-            <a href="${pageContext.request.contextPath}/admin/travellerLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-male"></i> 旅客登录</a>
-            <a href="${pageContext.request.contextPath}/admin/agencyLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-cc"></i> 旅行社登录</a>
+            <a href="${pageContext.request.contextPath}/adminController/travellerLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-male"></i> 旅客登录</a>
+            <a href="${pageContext.request.contextPath}/adminController/agencyLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-cc"></i> 旅行社登录</a>
         </div>
     </div>
     <!-- /.login-box-body -->

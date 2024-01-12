@@ -12,9 +12,14 @@ public class TravellerServiceImpl implements TravellerService {
     private TravellerMapper travellerMapper;
     @Override
     public Boolean isLogin(Traveller traveller) {
-        Traveller traveller1 = travellerMapper.selectPassword(traveller.getEmail());
-        if (traveller1.getPassword().equals(traveller.getPassword())) return true;
-        else return false;
+        Traveller traveller1 = travellerMapper.selectPassword(traveller);
+        if (traveller1 != null ){
+            if (traveller1.getPassword().equals(traveller.getPassword())) return true;
+            else return false;
+        }
+        else {
+            return false;
+        }
 
     }
 
@@ -22,4 +27,20 @@ public class TravellerServiceImpl implements TravellerService {
     public int addTraveller(Traveller traveller) {
         return travellerMapper.addTraveller(traveller);
     }
+
+    @Override
+    public Traveller findByEmail(String email) {
+        return travellerMapper.findByEmail(email);
+    }
+
+    @Override
+    public Traveller checkPassword(String id, String password) {
+        return travellerMapper.checkPassword(id,password);
+    }
+
+    @Override
+    public boolean modifyPassword(String id, String newPassword) {
+        return travellerMapper.modifyPassword(Integer.parseInt(id),newPassword);
+    }
+
 }

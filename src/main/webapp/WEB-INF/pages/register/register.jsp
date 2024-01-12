@@ -46,7 +46,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">新用户注册</p>
         <div class="text-center" style="color:red" id="errMsg">${err_info}</div>
-        <form action="${pageContext.request.contextPath}/traveller/register" method="post" id="registerForm">
+        <form action="${pageContext.request.contextPath}/travellerController/register" method="post" id="registerForm">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="用户名" name="userName" id="userName">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -90,7 +90,7 @@
         </form>
 
 
-        <a href="${pageContext.request.contextPath}/admin/travellerLogin" class="text-center">我有账号，现在就去登录</a>
+        <a href="${pageContext.request.contextPath}/adminController/travellerLogin" class="text-center">我有账号，现在就去登录</a>
     </div>
     <!-- /.form-box -->
 </div>

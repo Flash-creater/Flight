@@ -20,8 +20,11 @@ public class AgencyServiceImpl implements AgencyService {
     private Agency agency;
     @Override
     public Boolean isLogin(Agency agency) {
-        Agency agency1 = agencyMapper.selectPassword(agency.getAgencyName());
-        if (agency1.getPassword().equals(agency.getPassword())) return true;
+        Agency agency1 = agencyMapper.selectPassword(agency);
+        if (agency1 != null){
+            if (agency1.getPassword().equals(agency.getPassword())) return true;
+            else return false;
+        }
         else return false;
     }
     //查询所有的航班信息

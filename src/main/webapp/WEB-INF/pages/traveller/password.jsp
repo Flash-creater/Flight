@@ -46,7 +46,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">用户密码修改</p>
         <div class="text-center" style="color:red" id="errMsg">${err_info}</div>
-        <form action="${pageContext.request.contextPath}/traveller/modifyPassword?id=${user.id}" method="post" id="modifyForm">
+        <form action="${pageContext.request.contextPath}/travellerController/modifyPassword?id=${user.id}" method="post" id="modifyForm">
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="原密码" name="password" id="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>

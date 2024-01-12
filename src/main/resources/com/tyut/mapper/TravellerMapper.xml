@@ -1,11 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tyut.mapper.TravellerMapper">
-    <select id="selectPassword" parameterType="String" resultType="traveller">
+    <select id="selectPassword" parameterType="traveller" resultType="traveller">
+        select * from traveller where email = #{email} and password = #{password}
+    </select>
+    <select id="checkPassword" resultType="traveller">
+        select * from traveller where id = #{id} and password = #{password}
+    </select>
+    <select id="findByEmail" parameterType="String" resultType="traveller">
         select * from traveller where email = #{email}
     </select>
     <insert id="addTraveller" parameterType="traveller">
         insert into traveller(userName, trueName, password, email, phone, sex, ID_Card) values(#{userName},#{trueName},#{password},#{email},#{phone},#{sex},#{ID_Card})
     </insert>
+    <update id="modifyPassword" >
+        update traveller set password = #{newPassword} where id = #{id};
+    </update>
+    <update id="save" parameterType="traveller">
+        update traveller set userName = #{username}, trueName = #{trueName}, phone = #{phone}, sex = #{sex}, ID_Card = #{ID_Card}, birthday = #{birthday}, balance = #{balance} where id = #{id}
+    </update>
+    <select id="findAllAgency" resultType="agency">
+        select * from agency
+    </select>
+    <select id="findAgencyById" parameterType="String" resultType="agency">
+        select * from agency where id = #{aid}
+    </select>
+    <select id="findRouteByAid" resultType="route">
+        select * from route where aid = #{aid}
+    </select>
+    <select id="findRoute" resultType="route">
+        select * from route where aid = #{aid} and routeId = #{routeId}
+    </select>
+    <select id="findTraveller" resultType="traveller">
+        select * from traveller where trueName = #{trueName} and phone = #{phone} and sex = #{sex} and ID_Card = #{id_card}
+    </select>
+    <select id="findOrderById" resultType="agencyOrder">
+        select * from agency_order where aid=#{aid} and routeId = #{routeId} and tid= #{tid}
+    </select>
+    <insert id="addOrder" >
+        insert into agency_order(aid, routeId, tid, orderTime, beat) values(#{aid}, #{routeId}, #{tid}, #{parse}, #{beat})
+    </insert>
+    <update id="subBalance">
+        update traveller set balance = #{balance} where id = #{id}
+    </update>
+    <select id="findAidsByTid" resultType="agency">
+        SELECT * FROM agency WHERE id IN (SELECT aid FROM agency_order WHERE id IN (SELECT MIN(id) FROM agency_order WHERE tid = #{tid} GROUP BY aid ))
+    </select>
+    <select id="findRidsByTidAndAid" resultType="route">
+        select * from route where routeId in(SELECT routeId FROM agency_order WHERE tid = #{tid} and aid = #{aid})
+    </select>
+    <select id="findAgencyOrder" resultType="agencyOrder">
+        select * from agency_order where aid=#{aid} and tid =#{tid} and routeId=#{routeId}
+    </select>
+    <select id="findRouteByAidAndTid" resultType="route">
+        select * from route where routeID in (select routeId from agency_order where aid = #{aid} and tid = #{tid})
+    </select>
+    <select id="findTravellerById" resultType="traveller">
+        select * from traveller where id = #{tid}
+    </select>
+    <insert id="addBalance">
+        update traveller set balance = #{balance} where id =#{id}
+    </insert>
+    <delete id="deleteAgencyOrder">
+        delete from agency_order where tid = #{tid} and aid = #{aid} and routeId = #{routeId}
+    </delete>
+    <select id="findAllFlight" resultType="flight">
+        select * from flightinfo
+    </select>
+    <select id="findBeatByFid" resultType="beat">
+        select * from beat where flightId = #{flightId}
+    </select>
+    <select id="findPayOrder" resultType="flightOrder">
+        select * from flightorder where tid=#{parseInt} and payStatus = 1
+    </select>
+    <select id="findFlightById" resultType="flight">
+        select * from flightinfo where flightId = #{flightId}
+    </select>
+    <select id="findNOPayOrder" resultType="flightOrder">
+        select * from flightorder where tid=#{parseInt} and payStatus = 0
+    </select>
+    <select id="findFlightOrderById" resultType="flightOrder">
+        select * from flightorder where id = #{id}
+    </select>
+    <update id="updateFOrder">
+        update flightorder set payStatus = 1,payTime = #{parse} where id = #{id}
+    </update>
+    <delete id="deleteFlightOrder">
+        delete from flightorder where id = #{id}
+    </delete>
+    <update id="handlerAOrder">
+        update agency_order set handlerTime = #{time}, orderStatus = #{status} where id = #{id}
+    </update>
 
 </mapper>
