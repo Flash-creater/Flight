@@ -22,16 +22,8 @@ public class Flight implements Serializable {
     //出发时间
     private Time departureTime;
     private Time arrivalTime;
-    private int firstPrice;
-    //头等舱的座位数
-    private int firstCount;
-    //商务舱的价格
-    private int businessPrice;
-    //商务舱的座位数
-    private int businessCount;
-    private int economyPrice;
-    //经济舱的座位数
-    private int economyCount;
+    private Beat beat;
+    private Traveller traveller;
 
     public String getFlightId() {
         return flightId;
@@ -121,51 +113,19 @@ public class Flight implements Serializable {
         this.arrivalTime = arrivalTime;
     }
 
-    public int getFirstPrice() {
-        return firstPrice;
+    public Beat getBeat() {
+        return beat;
     }
 
-    public void setFirstPrice(int firstPrice) {
-        this.firstPrice = firstPrice;
+    public void setBeat(Beat beat) {
+        this.beat = beat;
     }
 
-    public int getFirstCount() {
-        return firstCount;
+    public Traveller getTraveller() {
+        return traveller;
     }
 
-    public void setFirstCount(int firstCount) {
-        this.firstCount = firstCount;
-    }
-
-    public int getBusinessPrice() {
-        return businessPrice;
-    }
-
-    public void setBusinessPrice(int businessPrice) {
-        this.businessPrice = businessPrice;
-    }
-
-    public int getBusinessCount() {
-        return businessCount;
-    }
-
-    public void setBusinessCount(int businessCount) {
-        this.businessCount = businessCount;
-    }
-
-    public int getEconomyPrice() {
-        return economyPrice;
-    }
-
-    public void setEconomyPrice(int economyPrice) {
-        this.economyPrice = economyPrice;
-    }
-
-    public int getEconomyCount() {
-        return economyCount;
-    }
-
-    public void setEconomyCount(int economyCount) {
-        this.economyCount = economyCount;
+    public void setTraveller(Traveller traveller) {
+        this.traveller = traveller;
     }
 }

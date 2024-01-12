@@ -60,8 +60,8 @@ public class AgencyController {
         return "showFlight";
     }
     @RequestMapping("/depToFinCityFlight")
-    public String depToFinCityFlight(String depCity,String finCity, Model model, HttpServletRequest httpServletRequest){
-        List<Flight> flights=agencyService.findFlightByDepAndFinCity(depCity,finCity);
+    public String depToFinCityFlight(String depCity, Model model, HttpServletRequest httpServletRequest){
+        List<Flight> flights=agencyService.findFlightByCity(depCity);
         model.addAttribute("flights", flights);
         return "showFlight";
     }

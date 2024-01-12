@@ -94,12 +94,12 @@ public class AgencyDaoImpl implements AgencyDao {
 
     //根据航班的编号flightId查询出所对应的座位信息
     @Override
-    public Beat findBeatByFid(String flightId) throws Exception{
-        Beat beat = null;
-        String sql = "select * from beat where flightId = ?";
-        beat = template.queryForObject(sql, new BeanPropertyRowMapper<Beat>(Beat.class), flightId);
-        return beat;
-    }
+//    public Beat findBeatByFid(String flightId) throws Exception{
+//        Beat beat = null;
+//        String sql = "select * from beat where flightId = ?";
+//        beat = template.queryForObject(sql, new BeanPropertyRowMapper<Beat>(Beat.class), flightId);
+//        return beat;
+//    }
     //根据agencyId查找对应的游客
     @Override
     public List<Traveller> findAllTraveller(String id) throws Exception {
@@ -108,92 +108,92 @@ public class AgencyDaoImpl implements AgencyDao {
     }
     //根据agencyId查找对应的游客id
     @Override
-    public List<Traveller> findTids(String aid) throws Exception{
-        String sql = "select * from traveller where id in (SELECT tid FROM agency_order WHERE id IN (SELECT MIN(id) FROM agency_order WHERE aid = ? GROUP BY tid))";
-        List<Traveller> tids = null;
-        tids = template.query(sql, new BeanPropertyRowMapper<Traveller>(Traveller.class), aid);
-        return tids;
-    }
+//    public List<Traveller> findTids(String aid) throws Exception{
+//        String sql = "select * from traveller where id in (SELECT tid FROM agency_order WHERE id IN (SELECT MIN(id) FROM agency_order WHERE aid = ? GROUP BY tid))";
+//        List<Traveller> tids = null;
+//        tids = template.query(sql, new BeanPropertyRowMapper<Traveller>(Traveller.class), aid);
+//        return tids;
+//    }
     //根据查询到的tid查找对应的traveller的信息
     @Override
-    public Traveller findTraById(Integer tid) throws Exception {
-        String sql = "select * from traveller where id = ?";
-        Traveller traveller = null;
-        traveller = template.queryForObject(sql, new BeanPropertyRowMapper<Traveller>(Traveller.class), tid);
-        return traveller;
-    }
+//    public Traveller findTraById(Integer tid) throws Exception {
+//        String sql = "select * from traveller where id = ?";
+//        Traveller traveller = null;
+//        traveller = template.queryForObject(sql, new BeanPropertyRowMapper<Traveller>(Traveller.class), tid);
+//        return traveller;
+//    }
     //根据aid和tid查询出对应的所有的路线id
     @Override
-    public List<Route> findRidsByTidAndAid(Integer tid, String aid) throws Exception{
-        String sql = "select * from route where routeID in(SELECT routeId FROM agency_order WHERE tid = ? and aid = ?)";
-        List<Route> Routes = template.query(sql, new BeanPropertyRowMapper<Route>(Route.class), tid, aid);
-        return Routes;
-    }
+//    public List<Route> findRidsByTidAndAid(Integer tid, String aid) throws Exception{
+//        String sql = "select * from route where routeID in(SELECT routeId FROM agency_order WHERE tid = ? and aid = ?)";
+//        List<Route> Routes = template.query(sql, new BeanPropertyRowMapper<Route>(Route.class), tid, aid);
+//        return Routes;
+//    }
     //根据tid,rid,aid查询出该订单对应的下单时间，下单状态，以及处理订单的时间
     @Override
-    public AgencyOrder findAgencyOrder(String aid, Integer tid, String rid) throws Exception{
-        String sql = "select * from agency_order where aid=? and tid =? and routeId=?";
-        AgencyOrder ao = null;
-        ao = template.queryForObject(sql, new BeanPropertyRowMapper<AgencyOrder>(AgencyOrder.class),aid,tid,rid);
-        return ao;
-    }
+//    public AgencyOrder findAgencyOrder(String aid, Integer tid, String rid) throws Exception{
+//        String sql = "select * from agency_order where aid=? and tid =? and routeId=?";
+//        AgencyOrder ao = null;
+//        ao = template.queryForObject(sql, new BeanPropertyRowMapper<AgencyOrder>(AgencyOrder.class),aid,tid,rid);
+//        return ao;
+//    }
     //根据tid和aid查询出对应的所有的路线id
 
     @Override
-    public List<Route> findRouteByAidAndTid(String aid, String tid) throws Exception{
-        String sql = "select * from route where routeID in (select routeId from agency_order where aid = ? and tid = ?)";
-        List<Route> route =null;
-        route = template.query(sql, new BeanPropertyRowMapper<Route>(Route.class), aid, tid);
-        return route;
-    }
+//    public List<Route> findRouteByAidAndTid(String aid, String tid) throws Exception{
+//        String sql = "select * from route where routeID in (select routeId from agency_order where aid = ? and tid = ?)";
+//        List<Route> route =null;
+//        route = template.query(sql, new BeanPropertyRowMapper<Route>(Route.class), aid, tid);
+//        return route;
+//    }
 
     //根据对应的routeId，aid, tid查找唯一的订单
     @Override
-    public AgencyOrder findOrderById(String aid, String routeId, Integer tid) {
-        String sql = "select * from agency_order where aid=? and routeId = ? and tid= ?";
-        AgencyOrder ao = null;
-        try {
-            ao = template.queryForObject(sql, new BeanPropertyRowMapper<AgencyOrder>(AgencyOrder.class), aid, routeId, tid);
-            return ao;
-        } catch (DataAccessException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public AgencyOrder findOrderById(String aid, String routeId, Integer tid) {
+//        String sql = "select * from agency_order where aid=? and routeId = ? and tid= ?";
+//        AgencyOrder ao = null;
+//        try {
+//            ao = template.queryForObject(sql, new BeanPropertyRowMapper<AgencyOrder>(AgencyOrder.class), aid, routeId, tid);
+//            return ao;
+//        } catch (DataAccessException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 
     //根据id值查找旅行社
     @Override
-    public Agency findAgencyById(String id) throws Exception{
-        String sql = "select * from agency where id = ?";
-        Agency agency = null;
-        agency = template.queryForObject(sql, new BeanPropertyRowMapper<Agency>(Agency.class), id);
-        return agency;
-
-    }
+//    public Agency findAgencyById(String id) throws Exception{
+//        String sql = "select * from agency where id = ?";
+//        Agency agency = null;
+//        agency = template.queryForObject(sql, new BeanPropertyRowMapper<Agency>(Agency.class), id);
+//        return agency;
+//
+//    }
     //通过agency的id值查找对应的路线
     @Override
-    public List<Route> findRouteByAid(String id) {
-        String sql = "select * from route where aid = ?";
-        List<Route> routes = null;
-        try {
-            routes = template.query(sql, new BeanPropertyRowMapper<Route>(Route.class), id);
-            return routes;
-        } catch (DataAccessException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public List<Route> findRouteByAid(String id) {
+//        String sql = "select * from route where aid = ?";
+//        List<Route> routes = null;
+//        try {
+//            routes = template.query(sql, new BeanPropertyRowMapper<Route>(Route.class), id);
+//            return routes;
+//        } catch (DataAccessException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
     //通过agency的id值和route的id值查找对应的路线
     @Override
-    public Route findRoute(String routeId, String aid) {
-        String sql = "select * from route where aid = ? and routeId = ?";
-        Route route = null;
-        try {
-            route = template.queryForObject(sql,new BeanPropertyRowMapper<Route>(Route.class), aid, routeId);
-            return route;
-        } catch (DataAccessException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public Route findRoute(String routeId, String aid) {
+//        String sql = "select * from route where aid = ? and routeId = ?";
+//        Route route = null;
+//        try {
+//            route = template.queryForObject(sql,new BeanPropertyRowMapper<Route>(Route.class), aid, routeId);
+//            return route;
+//        } catch (DataAccessException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 }
