@@ -7,7 +7,7 @@
     <select id="findAllFlight" resultType="Flight">
         select * from flightinfo where 1=1
     </select>
-    <select id="findFlightByDepCity" parameterType="Flight" resultType="Flight">
+    <select id="findFlightByCity" parameterType="String" resultType="Flight">
         select * from flightinfo where departureCity=#{departureCity}
     </select>
     <insert id="addOrder" parameterType="FlightOrder">
@@ -46,7 +46,7 @@
     <select id="findOrderById" parameterType="AgencyOrder" resultType="AgencyOrder">
         select * from agency_order where aid=#{aid} and tid=#{tid} and routeId=#{routeId}
     </select>
-    <select id="findAgencyById" parameterType="Integer" resultType="Agency">
+    <select id="findAgencyById" parameterType="String" resultType="Agency">
         select * from agency where id=#{id}
     </select>
     <select id="findRouteByAid" parameterType="String" resultType="Route">
@@ -63,5 +63,8 @@
     </select>
     <select id="findBeatByFid" parameterType="String" resultType="Beat">
         select * from beat where flightId = #{flightId}
+    </select>
+    <select id="findRidsByTidAndAid" parameterType="AgencyOrder" resultType="Route">
+        select * from route where routeID in(SELECT routeId FROM agency_order WHERE tid = #{tid} and aid =#{aid}
     </select>
 </mapper>
