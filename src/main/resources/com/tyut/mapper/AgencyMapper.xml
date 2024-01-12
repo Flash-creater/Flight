@@ -26,13 +26,13 @@
         insert into flightorder(aid, tid, routeId, flightId, orderPrice, beat) values (#{aid},#{tid},#{routeId},#{flightId},#{orderPrice},#{beat})
     </insert>
     <update id="subFirstBeatCount" parameterType="String">
-        update flightinfo set firstCount=firstCount-1 where flightId=#{flightId}
+        update beat set firstCount=firstCount-1 where flightId=#{flightId}
     </update>
     <update id="subBusinessBeatCount" parameterType="String">
-        update flightinfo set businessCount=businessCount-1 where flightId=#{flightId}
+        update beat set businessCount=businessCount-1 where flightId=#{flightId}
     </update>
     <update id="subEconomyBeatCount" parameterType="String">
-        update flightinfo set economyCount=economyCount-1 where flightId=#{flightId}
+        update beat set economyCount=economyCount-1 where flightId=#{flightId}
     </update>
     <select id="findFOrder" parameterType="String" resultType="FlightOrder">
         select * from flightorder where aid=#{aid}
@@ -48,5 +48,20 @@
     </select>
     <select id="findAgencyById" parameterType="Integer" resultType="Agency">
         select * from agency where id=#{id}
+    </select>
+    <select id="findRouteByAid" parameterType="String" resultType="Route">
+        select * from route where aid=#{aid}
+    </select>
+    <select id="findRoute" parameterType="Route" resultType="Route">
+        select * from route where aid=#{aid} and  routeId=#{routeId}
+    </select>
+    <select id="findRouteByAidAndTid" parameterType="AgencyOrder" resultType="Route">
+        select * from route where routeID in (select routeId from agency_order where aid = #{aid} and tid = #{aid})
+    </select>
+    <select id="findTids" parameterType="String" resultType="Traveller">
+        select * from traveller where id in (SELECT tid FROM agency_order WHERE id IN (SELECT MIN(id) FROM agency_order WHERE aid = #{aid} GROUP BY tid))
+    </select>
+    <select id="findBeatByFid" parameterType="String" resultType="Beat">
+        select * from beat where flightId = #{flightId}
     </select>
 </mapper>
