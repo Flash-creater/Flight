@@ -111,7 +111,7 @@ public class AgencyServiceImpl implements AgencyService {
 
         flightOrderList = agencyMapper.findFOrder(aid);
         //如果尚未订单，则返回空
-        if(flightOrderList == null ){
+        if(flightOrderList == null){
             return null;
         }
         //根据查找到的flightOrder来查找对应的traveller 和 flight的 信息
