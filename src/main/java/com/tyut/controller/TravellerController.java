@@ -1,6 +1,6 @@
 package com.tyut.controller;
 
-import com.sun.deploy.net.HttpResponse;
+//import com.sun.deploy.net.HttpResponse;
 import com.tyut.domain.Traveller;
 import com.tyut.mapper.TravellerMapper;
 import com.tyut.service.TravellerService;
