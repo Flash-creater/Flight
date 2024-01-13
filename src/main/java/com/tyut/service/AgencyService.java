@@ -18,7 +18,7 @@ public interface AgencyService {
     //    根据对应的routeId，aid, tid,fid查找唯一的订单
     FlightOrder findFOrderByIds(String aid, String routeId, String tid, String flightId);
     //产生新的flightOrder订单
-    boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, double price) ;
+    boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, double price) throws Exception;
     //获取aid,通过aid 查找flightOrder 获取该旅行社对应的相关的航班信息
     List<FlightOrder> findFOrder(String aid) ;
 }

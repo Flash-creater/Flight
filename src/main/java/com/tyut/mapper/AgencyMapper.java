@@ -2,11 +2,11 @@ package com.tyut.mapper;
 
 import com.tyut.domain.*;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public interface AgencyMapper {
-    public Agency selectPassword(String agencyName);
+    public Agency selectPassword(Agency agency);
     public List<Flight> findAllFlight();
     public List<Flight> findFlightByCity(String depCity);
     public void handlerAOrder(String aid, String routeId, int tid, Date handlerTime);
