@@ -243,7 +243,7 @@
             </div>
             <!--费用信息/--> <!--工具栏-->
             <div class="box-tools text-center">
-                <a href="${pageContext.request.contextPath}/traveller/exitOrder?aid=${ao.agency.id}&&rid=${ao.route.routeId}&&tid=${user.id}&&price=${ao.route.price}">
+                <a href="${pageContext.request.contextPath}/travellerController/exitOrder?aid=${ao.agency.id}&&rid=${ao.route.routeId}&&tid=${user.id}&&price=${ao.route.price}">
                     <button type="button" class="btn bg-default" id="exitOrder">退订</button>
                 </a>
                 <button type="button" class="btn bg-default"

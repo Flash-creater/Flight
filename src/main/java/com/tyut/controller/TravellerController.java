@@ -98,7 +98,7 @@ public class TravellerController {
             return "register/register";
         }
     }
-
+    //旅客实现注销功能
     @RequestMapping("/logout")
     public String  logout(HttpServletRequest request, HttpServletResponse response) {
         //1.销毁session中的User对象
@@ -111,7 +111,7 @@ public class TravellerController {
         //2.跳转到登陆入口页面
         return "login/traveller";
     }
-
+    //旅客修改密码
     @RequestMapping("/modifyPassword")
     public String modifyPassword(HttpServletRequest request, HttpServletResponse response){
         //1.获取参数
@@ -148,4 +148,19 @@ public class TravellerController {
         }
 
     }
+
+    public String saveUser(HttpServletRequest request,HttpServletResponse response) {
+        Traveller newTraveller = (Traveller) request.getSession().getAttribute("user");
+        boolean isTure = travellerService.save(newTraveller);
+        if (isTure){
+            request.getSession().setAttribute("user", newTraveller);
+            request.setAttribute("errMsg", "保存成功！！");
+            return "traveller/traveller-info";
+        }else {
+            request.setAttribute("errMsg", "保存失败，请联系管理员！！");
+            return "traveller/traveller-info";
+        }
+
+    }
+
 }

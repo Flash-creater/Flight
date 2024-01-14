@@ -220,12 +220,12 @@
             <!--费用信息/--> <!--工具栏-->
             <div class="box-tools text-center">
                 <c:if test="${flightOrder.payStatus=='0'}">
-                    <a href="${pageContext.request.contextPath}/traveller/payOrder?id=${flightOrder.id}&&tid=${user.id}&&price=${flightOrder.orderPrice}">
+                    <a href="${pageContext.request.contextPath}/travellerController/payOrder?id=${flightOrder.id}&&tid=${user.id}&&price=${flightOrder.orderPrice}">
                         <button type="button" class="btn bg-default" id="pay">支付</button>
                     </a>
                 </c:if>
                 <c:if test="${flightOrder.payStatus=='1'}">
-                    <a href="${pageContext.request.contextPath}/traveller/exitTicket?id=${flightOrder.id}&&price=${flightOrder.orderPrice}">
+                    <a href="${pageContext.request.contextPath}/travellerController/exitTicket?id=${flightOrder.id}&&price=${flightOrder.orderPrice}">
                         <button type="button" class="btn bg-default" id="exitOrder">退票</button>
                     </a>
                 </c:if>

@@ -94,7 +94,7 @@
         </section>
         <!-- 内容头部 /-->
                             <%--保存更改用户信息--%>
-        <form action="${pageContext.request.contextPath}/traveller/saveUser"
+        <form action="${pageContext.request.contextPath}/travellerController/saveUser"
               method="post" id="saveForm">
             <input value="${user.id}" name="id" hidden="hidden">
             <!-- 正文区域 -->

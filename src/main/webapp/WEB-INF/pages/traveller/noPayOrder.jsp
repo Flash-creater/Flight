@@ -137,7 +137,7 @@
                                 <td>${flightOrder.beat}</td>
                                 <td>￥${flightOrder.orderPrice}</td>
                                 <td class="text-center">
-                                    <a href="${pageContext.request.contextPath}/traveller/getPayInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">支付</a>
+                                    <a href="${pageContext.request.contextPath}/travellerController/getPayInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">支付</a>
                                 </td>
                             </tr>
                             </c:forEach>

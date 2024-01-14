@@ -139,8 +139,8 @@
                                 <td>${flightOrder.beat}</td>
                                 <td>${flightOrder.orderPrice}</td>
                                 <td class="text-center">
-                                    <a href="${pageContext.request.contextPath}/traveller/getPayInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">详情</a>
-                                    <a href="${pageContext.request.contextPath}/traveller/getPrintInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">打印</a>
+                                    <a href="${pageContext.request.contextPath}/travellerController/getPayInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">详情</a>
+                                    <a href="${pageContext.request.contextPath}/travellerController/getPrintInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">打印</a>
                                 </td>
                             </tr>
                             </c:forEach>

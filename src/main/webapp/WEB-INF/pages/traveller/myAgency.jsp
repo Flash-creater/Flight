@@ -147,7 +147,7 @@
                                         <td>${route.agencyOrder.orderStatusStr}</td>
                                         <td>￥${route.price}</td>
                                         <td class="text-center" colspan="2">
-                                            <a href="${pageContext.request.contextPath}/traveller/myAgencyOrder?aid=${agency.id}&&rid=${route.routeId}&&tid=${user.id}" class="btn bg-olive btn-xs">详情</a>
+                                            <a href="${pageContext.request.contextPath}/travellerController/myAgencyOrder?aid=${agency.id}&&rid=${route.routeId}&&tid=${user.id}" class="btn bg-olive btn-xs">详情</a>
 <%--                                            <a href="${pageContext.request.contextPath}/traveller/exitOrder?aid=${agency.id}&&rid=${route.routeId}&&tid=${user.id}&&price=${route.price}" class="btn bg-olive btn-xs" id="exit">退订</a>--%>
                                         </td>
                                     </tr>

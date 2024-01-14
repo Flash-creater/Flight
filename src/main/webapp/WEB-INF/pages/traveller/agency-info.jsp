@@ -85,7 +85,7 @@
                 旅行社信息 <small>信息表单</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="${pageContext.request.contextPath}/index.jsp"><i
+                <li><a href="${pageContext.request.contextPath}/travellerController/main"><i
                         class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a
                         href="#">旅行社信息</a></li>
@@ -139,7 +139,7 @@
                                 <td>${route.departureTimeStr}</td>
                                 <td>${route.departureCity}</td>
                                 <td class="text-center">
-                                    <a href="${pageContext.request.contextPath}/traveller/selectRoute?routeId=${route.routeId}&&aid=${agency.id}">
+                                    <a href="${pageContext.request.contextPath}/travellerController/selectRoute?routeId=${route.routeId}&&aid=${agency.id}">
                                         <button type="button" class="btn bg-olive btn-xs">选择</button>
                                     </a>
                                 </td>

@@ -85,7 +85,7 @@
                 旅行社信息 <small>旅行社列表</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="${pageContext.request.contextPath}/index.jsp"><i
+                <li><a href="${pageContext.request.contextPath}/travellerController/main"><i
                         class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a
                         href="#">旅行社信息</a></li>
@@ -127,7 +127,7 @@
                                     <td>${agency.agencyName}</td>
                                     <td>${agency.agencyInfo}</td>
                                     <td class="text-center">
-                                        <a href="${pageContext.request.contextPath}/traveller/agencyDetail?id=${agency.id}" class="btn bg-olive btn-xs">详情</a>
+                                        <a href="${pageContext.request.contextPath}/travellerController/agencyDetail?id=${agency.id}" class="btn bg-olive btn-xs">详情</a>
                                     </td>
                                 </tr>
                             </c:forEach>

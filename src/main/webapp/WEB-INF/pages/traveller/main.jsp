@@ -132,14 +132,14 @@
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
-		<jsp:include page="header.jsp"><jsp:param name="user" value="${user}"/></jsp:include>
+		<jsp:include page="header.jsp"></jsp:include>
 		<!-- 页面头部 /-->
 <%--		<c:import url="header.jsp" >--%>
 <%--			<c:param name="user"  value="${user}" />--%>
 <%--		</c:import>--%>
 
 		<!-- 导航侧栏 -->
-		<jsp:include page="aside.jsp"><jsp:param name="user" value="${user}"/></jsp:include>
+		<jsp:include page="aside.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->

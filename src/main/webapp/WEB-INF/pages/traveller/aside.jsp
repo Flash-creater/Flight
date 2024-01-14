@@ -27,7 +27,7 @@
 		<ul class="sidebar-menu">
 			<li class="header">菜单</li>
 			<li id="admin-index"><a
-					href="${pageContext.request.contextPath}/pages/traveller/main.jsp"><i
+					href="${pageContext.request.contextPath}/travellerController/main"><i
 					class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
@@ -40,7 +40,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/pages/traveller/traveller-info.jsp"> <i
+							href="${pageContext.request.contextPath}/travellerController/traveller-info"> <i
 							class="fa fa-circle-o"></i> 基本信息
 					</a></li>
 
@@ -53,11 +53,11 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/traveller/findAllAgency">
+							href="${pageContext.request.contextPath}/travellerController/findAllAgency">
 						<i class="fa fa-circle-o"></i> 旅行社列表
 					</a></li>
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/traveller/findMyAgencies?tid=${user.id}">
+							href="${pageContext.request.contextPath}/travellerController/findMyAgencies?tid=${user.id}">
 						<i class="fa fa-circle-o"></i> 我的旅行社
 					</a></li>
 				</ul></li>
@@ -69,7 +69,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/traveller/findAllFlight">
+							href="${pageContext.request.contextPath}/travellerController/findAllFlight">
 						<i class="fa fa-circle-o"></i> 航班列表
 					</a></li>
 				</ul></li>
@@ -82,11 +82,11 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/traveller/findPayOrder?tid=${user.id}">
+							href="${pageContext.request.contextPath}/travellerController/findPayOrder?tid=${user.id}">
 						<i class="fa fa-circle-o"></i> 已支付订单
 					</a></li>
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/traveller/findNoPayOrder?tid=${user.id}">
+							href="${pageContext.request.contextPath}/travellerController/findNoPayOrder?tid=${user.id}">
 						<i class="fa fa-circle-o"></i> 未支付订单
 					</a></li>
 				</ul></li>
