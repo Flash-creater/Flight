@@ -198,7 +198,7 @@ public class TravellerController {
             return "traveller/agency-list";
         } else {
             request.setAttribute("agency", agency);
-            return "traveller/agency-list";
+            return "traveller/agency-info";
         }
     }
 
@@ -256,6 +256,7 @@ public class TravellerController {
                 return "traveller/order-info";
             }
             boolean isOk = travellerService.addOrder(aid, routeId, traveller.getId(), beat);
+            System.out.println(isOk);
             travellerService.subBalance(traveller, price);
             Traveller newTraveller = (Traveller)request.getSession().getAttribute("user");
             newTraveller.setBalance(traveller.getBalance() - price);
@@ -349,7 +350,7 @@ public class TravellerController {
             newTraveller.setBalance(traveller.getBalance() + price);
             request.getSession().setAttribute("user", newTraveller);
 //        2.在页面中心输入退订成功，等待三秒后跳转到myAgency.jsp页面
-            return "redirect:traveller/findMyAgencies?tid="+tid;
+            return "traveller/myAgency";
         }else {
             //            发生错误，返回500.jsp
             return "traveller/500";

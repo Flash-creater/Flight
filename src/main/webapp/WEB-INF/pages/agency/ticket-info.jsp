@@ -124,7 +124,7 @@
                                 <i class="fa fa-calendar"></i>
                             </div>
                             <input type="text" class="form-control pull-right"
-                                   id="datepicker-a6" value="${flight.departureTimeStr}"
+                                   id="datepicker-a6" value="${flight.departureTime}"
                                    readonly="readonly">
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                             </div>
                             <input type="text" class="form-control pull-right"
                                    id="datepicker-a3" readonly="readonly"
-                                   value="${flight.arrivalTimeStr}">
+                                   value="${flight.arrivalTime}">
                         </div>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
             </div>
             <!--费用信息/--> <!--工具栏-->
             <div class="box-tools text-center">
-                <a href="${pageContext.request.contextPath}/agency/addFlightOrder?aid=${user.id}&&fid=${flight.flightId}&&tid=${flight.traveller.id}&&price=${param.price}&&rid=${param.rid}&&beat=${param.beat}">
+                <a href="${pageContext.request.contextPath}/agencyController/addFlightOrder?aid=${user.id}&&fid=${flight.flightId}&&tid=${flight.traveller.id}&&price=${param.price}&&rid=${param.rid}&&beat=${param.beat}">
                     <button type="button" class="btn bg-default" id="exitOrder">提交</button>
                 </a>
                 <button type="button" class="btn bg-default"
