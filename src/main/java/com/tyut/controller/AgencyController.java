@@ -1,6 +1,5 @@
 package com.tyut.controller;
 
-import com.tyut.domain.Admin;
 import com.tyut.domain.Agency;
 import com.tyut.domain.Flight;
 import com.tyut.mapper.AgencyMapper;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,5 +49,18 @@ public class AgencyController {
     public String  toAdminLogin(){
         return "login/admin";
     }
-
+    @RequestMapping("/findAllFlight")
+    public String findAllFlight(Model model, HttpServletRequest httpServletRequest){
+        List<Flight> flights=agencyService.findAllFlight();
+        model.addAttribute("flights", flights);
+        return "agency/airline-list";
+    }
+    @RequestMapping("/depToFinCityFlight")
+    public String depToFinCityFlight(String depCity, Model model, HttpServletRequest httpServletRequest){
+        List<Flight> flights=agencyService.findFlightByCity(depCity);
+        model.addAttribute("flights", flights);
+        return "showFlight";
+    }
 }
+
+

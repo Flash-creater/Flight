@@ -30,8 +30,8 @@ public class AgencyServiceImpl implements AgencyService {
     //查询所有的航班信息
     @Override
     public List<Flight> findAllFlight()  {
-        List<Flight> flights = null;
-        Beat beat = null;
+        List<Flight> flights;
+        Beat beat;
         //1.先查询出所有的航班信息
         flights = agencyMapper.findAllFlight();
         //2.根据航班的编号flightId查询出所对应的座位信息
@@ -42,7 +42,7 @@ public class AgencyServiceImpl implements AgencyService {
         //3.返回list
         return flights;
     }
-    //根据出发的城市查找对应的航班
+    //根据出发的城市查找对应的航班信息
     @Override
     public List<Flight> findFlightByCity(String city){
         List<Flight> flights = null;
@@ -77,7 +77,7 @@ public class AgencyServiceImpl implements AgencyService {
     }
     //产生新的flightOrder订单
     @Override
-    public boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, double price) throws Exception {
+    public boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, double price) {
         //1.修改对应的agencyOrder中的orderStatus 和 handlerTime
         //1.1 生成此时的处理时间handlerTime
         Date handlerTime = new Date();
@@ -85,7 +85,7 @@ public class AgencyServiceImpl implements AgencyService {
         df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String time = df.format(handlerTime);
         //1.2 对agencyOrder中的orderStatus 和 handlerTime进行修改
-        agencyMapper.handlerAOrder(aid, routeId, Integer.parseInt(tid), df.parse(time));
+        agencyMapper.handlerAOrder(aid, routeId, Integer.parseInt(tid), handlerTime);
         //2.添加flightOrder的订单
         boolean isOk = agencyMapper.addFOrder(aid, routeId, Integer.parseInt(tid), flightId, beat, price);
         //2.1减少航班对应舱位的座位数

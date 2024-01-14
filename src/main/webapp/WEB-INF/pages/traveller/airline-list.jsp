@@ -69,11 +69,11 @@
 <div class="wrapper">
 
     <!-- 页面头部 -->
-    <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="header.jsp"><jsp:param name="user" value="${user}"/></jsp:include>
     <!-- 页面头部 /-->
 
     <!-- 导航侧栏 -->
-    <jsp:include page="aside.jsp"></jsp:include>
+    <jsp:include page="aside.jsp"><jsp:param name="user" value="${user}"/></jsp:include>
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
@@ -110,24 +110,26 @@
                             <thead>
                             <tr>
                                 <th class="sorting_asc">航班编号</th>
+                                <th class="sorting_asc sorting_asc_disabled">机型</th>
                                 <th class="sorting_desc">出发城市</th>
+                                <th class="sorting_desc">出发机场</th>
                                 <th class="sorting_asc sorting_asc_disabled">到达城市</th>
+                                <th class="sorting_asc sorting_asc_disabled">到达机场</th>
                                 <th class="sorting_desc">出发时间</th>
                                 <th class="sorting_asc sorting_asc_disabled">到达时间</th>
-                                <th class="text-center">历时</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${flightList}" var="flight" varStatus="status">
+                            <c:forEach items="${flights}" var="flight" varStatus="status">
                                 <tr data-tt-id="${status.index}">
                                     <td>${flight.flightId}</td>
+                                    <td>${flight.craftType}</td>
                                     <td>${flight.departureCity}</td>
+                                    <td>${flight.departureAirport}</td>
                                     <td>${flight.finalCity}</td>
+                                    <td>${flight.arrivalAirport}</td>
                                     <td>${flight.departureTime}</td>
                                     <td>${flight.arrivalTime}</td>
-                                    <td class="text-center">
-                                        2小时
-                                    </td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+1}'" data-tt-parent-id="${status.index}" style="background:#f9f9f9">
                                     <td>舱位等级</td>
@@ -138,7 +140,7 @@
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+2}'" data-tt-parent-id="${status.index}">
                                     <td>${flight.beat.firstClass}</td>
                                     <td colspan="2" class="text-center">${flight.beat.firstCount}</td>
-                                    <td colspan="2" class="text-center">￥${flight.beat.firstPrice}</td>
+                                    <td colspan="2" class="text-center">${flight.beat.firstPrice}</td>
                                     <td class="text-center" colspan="2">
                                         <a href="#" onclick="bookTicket()" class="btn bg-olive btn-xs">订票</a>
                                     </td>
