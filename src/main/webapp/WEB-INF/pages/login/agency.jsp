@@ -57,7 +57,7 @@
         </form>
         <div class="social-auth-links text-center">
             <p>- 或者 -</p>
-            <a href="${pageContext.request.contextPath}/adminController/travellerLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-male"></i> 旅客登录</a>
+            <a href="${pageContext.request.contextPath}/agencyController/travellerLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-male"></i> 旅客登录</a>
                         <a href="${pageContext.request.contextPath}/agencyController/adminLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-plane"></i> 航空公司登录</a>
         </div>
     </div>

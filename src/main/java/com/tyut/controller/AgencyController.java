@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
-@RequestMapping("/agency")
+@RequestMapping("/agencyController")
 public class AgencyController {
     @Autowired
     private AgencyService agencyService;
