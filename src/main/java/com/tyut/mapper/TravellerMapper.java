@@ -36,7 +36,7 @@ public interface TravellerMapper {
     //根据对应的routeId，aid, tid产生唯一的订单,已经下单的时间
     boolean addOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") Integer tid, @Param("parse") Date parse,@Param("beat") String beat);
     //产生订单之后，减少卡内余额
-    void subBalance(Traveller traveller, double price);
+    void subBalance(Traveller traveller);
     //查询旅客的id选定的旅行社
     List<Agency> findAidsByTid(@Param("tid") String tid)throws Exception;
     //根据aid和tid查询出对应的所有的路线id
@@ -48,15 +48,15 @@ public interface TravellerMapper {
     //根据旅客的id值查找对应的旅客信息
     Traveller findTravellerById(@Param("tid") String tid) throws Exception;
     //当退订成功之后，增加旅客的余额
-    void addBalance(Traveller traveller, double price) throws Exception;
+    void addBalance(Traveller traveller) ;
     //通过对应的tid aid routeId 实现退订
     boolean deleteAgencyOrder(@Param("tid") String tid, @Param("aid") String aid,@Param("routeId") String routeId);
     //查询所有的航班信息
     List<Flight> findAllFlight() throws Exception;
     //根据航班的编号flightId查询出所对应的座位信息
-    Beat findBeatByFid(@Param("fightId") String flightId);
+    Beat findBeatByFid(@Param("flightId")String flightId);
     //查找已经支付的航班订单的信息
-    List<FlightOrder> findPayOrder(@Param("paresInt") int parseInt);
+    List<FlightOrder> findPayOrder(@Param("parseInt") int parseInt);
     //根据fid查找到对应的flight信息
     Flight findFlightById(@Param("flightId") String flightId) throws Exception;
 

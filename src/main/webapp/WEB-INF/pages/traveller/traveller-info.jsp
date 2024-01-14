@@ -85,7 +85,7 @@
                 基本信息 <small>信息表单</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="${pageContext.request.contextPath}/index.jsp"><i
+                <li><a href="${pageContext.request.contextPath}/travellerController/main"><i
                         class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a
                         href="#">基本信息</a></li>

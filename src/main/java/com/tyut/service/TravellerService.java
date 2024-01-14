@@ -34,7 +34,7 @@ public interface TravellerService {
     //根据对应的routeId，aid, tid产生唯一的订单
     boolean addOrder(String aid, String routeId, Integer id, String beat) throws ParseException;
     //产生订单之后，减少卡内余额
-    void subBalance(Traveller traveller, double price);
+    void subBalance(Traveller traveller, double price) throws Exception;
     //根据用户id查找对应的旅行社，旅行路线
     List<Agency> findAgencyOrder(String tid) throws Exception;
     //根据routeId tid aid 获取相应的路线信息

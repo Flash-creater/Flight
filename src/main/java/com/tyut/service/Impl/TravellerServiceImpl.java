@@ -97,8 +97,11 @@ public class TravellerServiceImpl implements TravellerService {
     }
     //减少订单对应的价格数
     @Override
-    public void subBalance(Traveller traveller, double price) {
-        travellerMapper.subBalance(traveller, price);
+    public void subBalance(Traveller traveller, double price) throws Exception {
+        Traveller traveller1 = travellerMapper.findTravellerById(String.valueOf(traveller.getId()));
+        Double newBalance = traveller1.getBalance()-price;
+        traveller.setBalance(newBalance);
+        travellerMapper.subBalance(traveller);
     }
     //根据用户id查找对应的旅行社，旅行路线
     @Override
@@ -147,7 +150,10 @@ public class TravellerServiceImpl implements TravellerService {
     //当退订成功之后，增加旅客的余额
     @Override
     public void addBalance(Traveller traveller, double price) throws Exception{
-        travellerMapper.addBalance(traveller, price);
+        Traveller traveller1 = travellerMapper.findTravellerById(String.valueOf(traveller.getId()));
+        Double newBalance = traveller1.getBalance()+price;
+        traveller.setBalance(newBalance);
+        travellerMapper.addBalance(traveller);
     }
 
     @Override
@@ -162,8 +168,8 @@ public class TravellerServiceImpl implements TravellerService {
     //查询所有的航班信息
     @Override
     public List<Flight> findAllFlight() throws Exception {
-        List<Flight> flights = null;
-        Beat beat = null;
+        List<Flight> flights ;
+        Beat beat ;
         //1.先查询出所有的航班信息
         flights = travellerMapper.findAllFlight();
         //2.根据航班的编号flightId查询出所对应的座位信息
@@ -241,7 +247,8 @@ public class TravellerServiceImpl implements TravellerService {
         //将对应的游客的金额数减少
         FlightOrder fo = travellerMapper.findFlightOrderById(Integer.parseInt(id));
         Traveller traveller = travellerMapper.findTravellerById(fo.getTid().toString());
-        travellerMapper.subBalance(traveller, fo.getOrderPrice());
+        traveller.setBalance(traveller.getBalance()-fo.getOrderPrice());
+        travellerMapper.subBalance(traveller);
     }
 
     // 根据id值删除对应的flightOrder订单

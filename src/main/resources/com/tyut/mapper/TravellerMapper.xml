@@ -17,7 +17,7 @@
         update traveller set password = #{newPassword} where id = #{id};
     </update>
     <update id="save" parameterType="traveller">
-        update traveller set userName = #{username}, trueName = #{trueName}, phone = #{phone}, sex = #{sex}, ID_Card = #{ID_Card}, birthday = #{birthday}, balance = #{balance} where id = #{id}
+        update traveller set userName = #{userName}, trueName = #{trueName}, phone = #{phone}, sex = #{sex}, ID_Card = #{ID_Card}, birthday = #{birthday}, balance = #{balance} where id = #{id}
     </update>
     <select id="findAllAgency" resultType="agency">
         select * from agency
@@ -65,7 +65,7 @@
         delete from agency_order where tid = #{tid} and aid = #{aid} and routeId = #{routeId}
     </delete>
     <select id="findAllFlight" resultType="flight">
-        select * from flightinfo
+        select * from flightinfo limit 50
     </select>
     <select id="findBeatByFid" resultType="beat">
         select * from beat where flightId = #{flightId}

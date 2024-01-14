@@ -9,6 +9,26 @@ import java.util.Date;
 public class Flight implements Serializable {
     //航班编号
     private String flightId;
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightId='" + flightId + '\'' +
+                ", company='" + company + '\'' +
+                ", craftType='" + craftType + '\'' +
+                ", departureCity='" + departureCity + '\'' +
+                ", departureAirport='" + departureAirport + '\'' +
+                ", dCode='" + dCode + '\'' +
+                ", finalCity='" + finalCity + '\'' +
+                ", arrivalAirport='" + arrivalAirport + '\'' +
+                ", aCode='" + aCode + '\'' +
+                ", departureTime=" + departureTime +
+                ", arrivalTime=" + arrivalTime +
+                ", beat=" + beat +
+                ", traveller=" + traveller +
+                '}';
+    }
+
     private String company;
     private String craftType;
     //出发城市

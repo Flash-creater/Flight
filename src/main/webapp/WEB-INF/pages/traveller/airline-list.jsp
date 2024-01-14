@@ -69,11 +69,11 @@
 <div class="wrapper">
 
     <!-- 页面头部 -->
-    <jsp:include page="header.jsp"><jsp:param name="user" value="${user}"/></jsp:include>
+    <jsp:include page="header.jsp"></jsp:include>
     <!-- 页面头部 /-->
 
     <!-- 导航侧栏 -->
-    <jsp:include page="aside.jsp"><jsp:param name="user" value="${user}"/></jsp:include>
+    <jsp:include page="aside.jsp"></jsp:include>
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
@@ -123,8 +123,8 @@
                                     <td>${flight.flightId}</td>
                                     <td>${flight.departureCity}</td>
                                     <td>${flight.finalCity}</td>
-                                    <td>${flight.departureTimeStr}</td>
-                                    <td>${flight.arrivalTimeStr}</td>
+                                    <td>${flight.departureTime}</td>
+                                    <td>${flight.arrivalTime}</td>
                                     <td class="text-center">
                                         2小时
                                     </td>

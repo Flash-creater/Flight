@@ -39,7 +39,7 @@ public class AgencyController {
     public String mainJsp(Agency agency, HttpServletRequest request,HttpServletResponse response){
         Agency agency1 = agencyMapper.selectPassword(agency);
         request.setAttribute("user",agency1);
-        return "admin/main";
+        return "agency/main";
     }
 
     @RequestMapping("/travellerLogin")
