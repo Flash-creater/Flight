@@ -5,7 +5,7 @@
         select * from agency where agencyName = #{agencyName} and password = #{password}
     </select>
     <select id="findAllFlight" resultType="Flight">
-        select * from flightinfo where 1=1
+        select * from flightinfo where 1=1 LIMIT 50
     </select>
     <select id="findFlightByCity" parameterType="String" resultType="Flight">
         select * from flightinfo where departureCity=#{departureCity}
@@ -65,6 +65,6 @@
         select * from beat where flightId = #{flightId}
     </select>
     <select id="findRidsByTidAndAid" parameterType="AgencyOrder" resultType="Route">
-        select * from route where routeID in(SELECT routeId FROM agency_order WHERE tid = #{tid} and aid =#{aid}
+        select * from route where routeID in(SELECT routeId FROM agency_order WHERE tid = #{tid} and aid =#{aid})
     </select>
 </mapper>

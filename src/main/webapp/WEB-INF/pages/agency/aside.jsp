@@ -27,7 +27,7 @@
 		<ul class="sidebar-menu">
 			<li class="header">菜单</li>
 			<li id="admin-index"><a
-				href="${pageContext.request.contextPath}/pages/agency/main.jsp"><i
+				href="${pageContext.request.contextPath}/agencyController/main "><i
 					class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
@@ -40,7 +40,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/agency/findAllTraveller?id=${user.id}"> <i
+						href="${pageContext.request.contextPath}/agencyController/findAllTraveller?id=${user.id}"> <i
 							class="fa fa-circle-o"></i> 旅客列表
 					</a></li>
 
@@ -53,7 +53,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/pages/agency/agency-info.jsp">
+							href="${pageContext.request.contextPath}/agencyController/agency-info">
 						<i class="fa fa-circle-o"></i> 基本信息
 					</a></li>
 				</ul></li>
@@ -65,7 +65,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/agency/findAllFlight">
+						href="${pageContext.request.contextPath}/agencyController/findAllFlight">
 							<i class="fa fa-circle-o"></i> 航班列表
 					</a></li>
 				</ul></li>
@@ -77,7 +77,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/agency/findFOrder?aid=${user.id}">
+							href="${pageContext.request.contextPath}/agencyController/findFOrder?aid=${user.id}">
 						<i class="fa fa-circle-o"></i> 航班订单列表
 					</a></li>
 				</ul></li>
