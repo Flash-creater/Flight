@@ -111,10 +111,11 @@
                             <tr>
                                 <th class="sorting_asc">航班编号</th>
                                 <th class="sorting_desc">出发城市</th>
+                                <th class="sorting_desc">出发机场</th>
                                 <th class="sorting_asc sorting_asc_disabled">到达城市</th>
+                                <th class="sorting_asc sorting_asc_disabled">到达机场</th>
                                 <th class="sorting_desc">出发时间</th>
                                 <th class="sorting_asc sorting_asc_disabled">到达时间</th>
-                                <th class="text-center">历时</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -122,12 +123,11 @@
                                 <tr data-tt-id="${status.index}">
                                     <td>${flight.flightId}</td>
                                     <td>${flight.departureCity}</td>
+                                    <td>${flight.departureAirport}</td>
                                     <td>${flight.finalCity}</td>
-                                    <td>${flight.departureTimeStr}</td>
-                                    <td>${flight.arrivalTimeStr}</td>
-                                    <td class="text-center">
-                                        2小时
-                                    </td>
+                                    <td>${flight.arrivalAirport}</td>
+                                    <td>${flight.departureTime}</td>
+                                    <td>${flight.arrivalTime}</td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+1}'" data-tt-parent-id="${status.index}" style="background:#f9f9f9">
                                     <td>舱位等级</td>
@@ -140,7 +140,7 @@
                                     <td colspan="2" class="text-center">${flight.beat.firstCount}</td>
                                     <td colspan="2" class="text-center">￥${flight.beat.firstPrice}</td>
                                     <td class="text-center" colspan="2">
-                                        <a href="${pageContext.request.contextPath}/agency/flightDetail?rid=${param.rid}&&fid=${flight.flightId}&&tid=${param.tid}&&price=${flight.beat.firstPrice}&&beat=${flight.beat.firstClass}" class="btn bg-olive btn-xs">
+                                        <a href="${pageContext.request.contextPath}/agencyController/flightDetail?rid=${param.rid}&&fid=${flight.flightId}&&tid=${param.tid}&&price=${flight.beat.firstPrice}&&beat=${flight.beat.firstClass}" class="btn bg-olive btn-xs">
                                             订票
                                         </a>
                                     </td>
@@ -150,7 +150,7 @@
                                     <td colspan="2" class="text-center">${flight.beat.businessCount}</td>
                                     <td colspan="2" class="text-center">${flight.beat.businessPrice}</td>
                                     <td class="text-center" colspan="2">
-                                        <a href="${pageContext.request.contextPath}/agency/flightDetail?fid=${flight.flightId}&&rid=${param.rid}&&tid=${param.tid}&&price=${flight.beat.businessPrice}&&beat=${flight.beat.businessClass}" class="btn bg-olive btn-xs">订票</a>
+                                        <a href="${pageContext.request.contextPath}/agencyController/flightDetail?fid=${flight.flightId}&&rid=${param.rid}&&tid=${param.tid}&&price=${flight.beat.businessPrice}&&beat=${flight.beat.businessClass}" class="btn bg-olive btn-xs">订票</a>
                                     </td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+4}'" data-tt-parent-id="${status.index}">
@@ -158,7 +158,7 @@
                                     <td colspan="2" class="text-center">${flight.beat.economyCount}</td>
                                     <td colspan="2" class="text-center">${flight.beat.economyPrice}</td>
                                     <td class="text-center" colspan="2">
-                                        <a href="${pageContext.request.contextPath}/agency/flightDetail?fid=${flight.flightId}&&rid=${param.rid}&&tid=${param.tid}&&price=${flight.beat.economyPrice}&&beat=${flight.beat.economyClass}" class="btn bg-olive btn-xs">
+                                        <a href="${pageContext.request.contextPath}/agencyController/flightDetail?fid=${flight.flightId}&&rid=${param.rid}&&tid=${param.tid}&&price=${flight.beat.economyPrice}&&beat=${flight.beat.economyClass}" class="btn bg-olive btn-xs">
                                             订票
                                         </a>
                                     </td>
@@ -185,7 +185,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 1.0.1
         </div>
-        <strong>Copyright &copy; 2020-2021 <a
+        <strong>Copyright &copy; 2024 <a
                 href="http://www.baidu.cn">版权所有：何志森项目组</a>
         </strong>地址：山西省晋中市榆次区乌金山镇明向校区 | 邮政编码：030600 | 电话：0351-5222222</footer>
     <!-- 底部导航 /-->
@@ -255,7 +255,7 @@
         //订票时，先判断是否rid的值是否存在
         $(".btn-xs").click(function (){
             if(${param.rid == null}){
-                location.href = "${pageContext.request.contextPath}/agency/findAllTraveller?id=${user.id}";
+                location.href = "${pageContext.request.contextPath}/agencyController/findAllTraveller?id=${user.id}";
                 return false;
             }else {
                 return true;
