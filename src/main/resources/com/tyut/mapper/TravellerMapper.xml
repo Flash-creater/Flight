@@ -22,8 +22,8 @@
     <select id="findAllAgency" resultType="agency">
         select * from agency
     </select>
-    <select id="findAgencyById" parameterType="String" resultType="agency">
-        select * from agency where id = #{aid}
+    <select id="findAgencyById" resultType="agency">
+        select * from agency where id = #{id}
     </select>
     <select id="findRouteByAid" resultType="route">
         select * from route where aid = #{aid}

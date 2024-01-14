@@ -65,8 +65,8 @@ public class TravellerServiceImpl implements TravellerService {
     }
     //通过agency的id值查找对应的路线
     @Override
-    public List<Route> findRouteByAid(String id) {
-        return travellerMapper.findRouteByAid(id);
+    public List<Route> findRouteByAid(String aid) {
+        return travellerMapper.findRouteByAid(aid);
     }
     //通过agency的id值和route的id值查找对应的路线
     @Override

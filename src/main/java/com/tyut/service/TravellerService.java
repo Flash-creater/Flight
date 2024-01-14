@@ -24,7 +24,7 @@ public interface TravellerService {
     //根据id值查询旅行社
     Agency findAgencyById(String id) throws Exception;
     //通过agency的id值查找对应的路线
-    List<Route> findRouteByAid(String id);
+    List<Route> findRouteByAid(String aid);
     //通过agency的id值和route的id值查找对应的路线
     Route findRoute(String routeId, String aid);
     //调用Service查找身份证号是否已经与有人使用

@@ -26,7 +26,7 @@ public interface TravellerMapper {
     //通过agency的id值查找对应的旅行社
     Agency findAgencyById(@Param("id") String id) throws Exception;
     //通过agency的id值查找对应的路线
-    List<Route> findRouteByAid(@Param("id") String id);
+    List<Route> findRouteByAid(@Param("aid") String aid);
     //通过agency的id值和route的id值查找对应的路线
     Route findRoute(@Param("routeId") String routeId, @Param("aid") String aid);
     //调用Service查找身份证号是否已经与有人使用

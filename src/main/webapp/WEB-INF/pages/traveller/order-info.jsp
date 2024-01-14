@@ -97,7 +97,7 @@
         </section>
         <!-- 内容头部 /-->
 <%--        提交预定旅行社的用户信息--%>
-        <form action="${pageContext.request.contextPath}/traveller/fillOrderInfo"
+        <form action="${pageContext.request.contextPath}/travellerController/fillOrderInfo"
               method="post" id="fillForm">
         <!-- 正文区域 -->
         <section class="content"> <!--订单信息-->
@@ -183,7 +183,7 @@
                                        value="居民身份证" readonly="readonly" class="form-control">
                             </td>
                             <td>
-                                <input type="text" size="28" value="${user.ID_Card}" name="ID_Card" id="ID_Card" class="form-control">
+                                <input type="text" size="18" value="${user.ID_Card}" name="ID_Card" id="ID_Card" class="form-control">
                             </td>
                             <td>
                                 <select class="form-control select2" style="width: 100%"
@@ -354,7 +354,7 @@
     function testid() {
         var id = $('#ID_Card').val();
             // 1 "验证通过!", 0 //校验不通过 // id为身份证号码
-            var format = /^(([1][1-5])|([2][1-3])|([3][1-7])|([4][1-6])|([5][0-4])|([6][1-5])|([7][1])|([8][1-2]))\d{4}(([1][9]\d{2})|([2]\d{3}))(([0][1-9])|([1][0-2]))(([0][1-9])|([1-2][0-9])|([3][0-1]))\d{3}[0-9xX]$/;
+            var format = /^[1-9]\d{5}(19|20|21)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
             //号码规则校验
             if(!format.test(id)){
                 //非法
@@ -422,7 +422,7 @@
         // 判断当前路线是否出发
         $("#isGo").click(function () {
             var nowTime = new Date();
-            var time = '${route.departureTimeStr}'; // 获取路线出发的时间
+            var time = '${route.departureTime}'; // 获取路线出发的时间
             var orderTime = new Date(time);
             if(orderTime.getTime() < nowTime.getTime()){
                 alert("该路线已出发，请重新选择路线！！")
