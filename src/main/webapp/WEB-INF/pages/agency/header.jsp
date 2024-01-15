@@ -35,7 +35,7 @@
 						<!-- Menu Footer-->
 						<li class="user-footer">
 							<div class="pull-right">
-								<a href="${pageContext.request.contextPath}/agency/logout"
+								<a href="${pageContext.request.contextPath}/agencyController/logout"
 									class="btn btn-default btn-flat">注销</a>
 							</div>
 						</li>

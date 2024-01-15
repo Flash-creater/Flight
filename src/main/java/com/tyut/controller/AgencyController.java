@@ -3,6 +3,7 @@ package com.tyut.controller;
 import com.tyut.domain.Agency;
 import com.tyut.domain.Flight;
 import com.tyut.domain.FlightOrder;
+import com.tyut.domain.Traveller;
 import com.tyut.mapper.AgencyMapper;
 import com.tyut.service.AgencyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,58 @@ public class AgencyController {
             }
 
         }
+    }
+
+    @RequestMapping("findFOrder")
+    public String findFOrder(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //1.获取aid,通过aid 查找flightOrder 获取该旅行社对应的相关的航班信息
+        String aid = request.getParameter("aid");
+        //2.调用service 查找到相关的traveller flight agencyOrder的信息
+        List<FlightOrder> flightOrderList = null;
+        try {
+            flightOrderList = agencyService.findFOrder(aid);
+            System.out.println(aid);
+            if (flightOrderList.size() == 0) {
+                request.setAttribute("errMsg", "您尚未任何航班订单！！");
+                return ("/agency/flightOrder-list");
+            } else {
+                request.setAttribute("flightOrderList", flightOrderList);
+                return ("/agency/flightOrder-list");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("errMsg", "您尚未任何航班订单！！");
+            return ("/agency/flightOrder-list");
+
+        }
+    }
+
+    @RequestMapping("/findAllTraveller")
+    public String findAllTraveller(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //1.获取agency的id值
+        String id = request.getParameter("id");
+//        System.out.println(id);
+        //2.调用service查询所有的旅客
+        List<Traveller> travellerList = null;
+
+        try {
+            travellerList = agencyService.findAllTraveller(id);
+            // 如果旅客为空，请返回提示信息
+            if (travellerList.size() == 0) {
+                //2.1 存储到request的作用域中，并跳转到traveller-list.jsp
+                request.setAttribute("errMsg", "你还没有旅客哦，快快去拓展自己的业务吧！");
+                return ("/agency/traveller-list");
+            } else {
+                //2.1 存储到request的作用域中，并跳转到traveller-list.jsp
+                request.setAttribute("travellerList", travellerList);
+                return ("/agency/traveller-list");
+            }
+
+        } catch (Exception e) {
+            //发生异常 跳转到500.jsp页面
+            return "redirect:/agency/500";
+        }
+
     }
 }
 

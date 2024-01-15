@@ -10,19 +10,19 @@
     <select id="findFlightByCity" parameterType="String" resultType="Flight">
         select * from flightinfo where departureCity=#{departureCity}
     </select>
-    <insert id="addOrder" parameterType="FlightOrder">
+    <insert id="addOrder" >
         insert into flightorder (aid, tid, routeId, flightId, payStatus, orderPrice, beat, payTime) values (#{aid},#{tid},#{routeId},#{flightId},#{payStatus},#{orderPrice},#{beat},#{payTime})
     </insert>
-    <update id="handlerAOrder" parameterType="AgencyOrder">
+    <update id="handlerAOrder" >
         update agency_order set handlerTime = #{handlerTime}, orderStatus = 1 where aid = #{aid} and tid = #{tid} and routeId = #{routeId}
     </update>
     <select id="findFlightById" parameterType="String" resultType="Flight">
         select * from flightinfo where flightId=#{flightId}
     </select>
-    <select id="findFOrderByIds" parameterType="FlightOrder" resultType="FlightOrder">
+    <select id="findFOrderByIds" resultType="FlightOrder">
         select * from flightorder where aid=#{aid} and routeId = #{routeId} and tid = #{tid} and flightId = #{flightId}
     </select>
-    <insert id="addFOrder" parameterType="FlightOrder">
+    <insert id="addFOrder">
         insert into flightorder(aid, tid, routeId, flightId, orderPrice, beat) values (#{aid},#{tid},#{routeId},#{flightId},#{orderPrice},#{beat})
     </insert>
     <update id="subFirstBeatCount" parameterType="String">
@@ -35,15 +35,15 @@
         update beat set economyCount=economyCount-1 where flightId=#{flightId}
     </update>
     <select id="findFOrder" parameterType="String" resultType="FlightOrder">
-        select * from flightorder where aid=#{aid}
+        select * from agency_order where aid=#{aid}
     </select>
     <select id="findTraById" parameterType="Integer" resultType="Traveller">
         select * from traveller where id = #{id}
     </select>
-    <select id="findAgencyOrder" parameterType="AgencyOrder" resultType="AgencyOrder">
+    <select id="findAgencyOrder" resultType="AgencyOrder">
         select * from agency_order where aid=#{aid} and tid=#{tid} and routeId=#{routeId}
     </select>
-    <select id="findOrderById" parameterType="AgencyOrder" resultType="AgencyOrder">
+    <select id="findOrderById" resultType="AgencyOrder">
         select * from agency_order where aid=#{aid} and tid=#{tid} and routeId=#{routeId}
     </select>
     <select id="findAgencyById" parameterType="String" resultType="Agency">
@@ -52,10 +52,10 @@
     <select id="findRouteByAid" parameterType="String" resultType="Route">
         select * from route where aid=#{aid}
     </select>
-    <select id="findRoute" parameterType="Route" resultType="Route">
+    <select id="findRoute" resultType="Route">
         select * from route where aid=#{aid} and  routeId=#{routeId}
     </select>
-    <select id="findRouteByAidAndTid" parameterType="AgencyOrder" resultType="Route">
+    <select id="findRouteByAidAndTid" resultType="Route">
         select * from route where routeID in (select routeId from agency_order where aid = #{aid} and tid = #{aid})
     </select>
     <select id="findTids" parameterType="String" resultType="Traveller">
@@ -64,7 +64,7 @@
     <select id="findBeatByFid" parameterType="String" resultType="Beat">
         select * from beat where flightId = #{flightId}
     </select>
-    <select id="findRidsByTidAndAid" parameterType="AgencyOrder" resultType="Route">
+    <select id="findRidsByTidAndAid" resultType="Route">
         select * from route where routeID in(SELECT routeId FROM agency_order WHERE tid = #{tid} and aid =#{aid})
     </select>
 </mapper>

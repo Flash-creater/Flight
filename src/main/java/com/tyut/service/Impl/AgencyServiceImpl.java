@@ -104,12 +104,13 @@ public class AgencyServiceImpl implements AgencyService {
     //    获取aid,通过aid 查找flightOrder 获取该旅行社对应的相关的航班信息
     @Override
     public List<FlightOrder> findFOrder(String aid) {
-        List<FlightOrder> flightOrderList = new ArrayList<>();
-        Traveller traveller = null;
-        Flight flight = null;
-        AgencyOrder ao = null;
-
+        List<FlightOrder> flightOrderList;
+        Traveller traveller;
+        Flight flight;
+        AgencyOrder ao;
         flightOrderList = agencyMapper.findFOrder(aid);
+        System.out.println(flightOrderList);
+        System.out.println(aid);
         //如果尚未订单，则返回空
         if(flightOrderList == null){
             return null;
@@ -118,16 +119,12 @@ public class AgencyServiceImpl implements AgencyService {
         for(FlightOrder fo:flightOrderList){
             flight = agencyMapper.findFlightById(fo.getFlightId());
             fo.setFlight(flight);
-
             traveller = agencyMapper.findTraById(fo.getTid());
             fo.setTraveller(traveller);
-
             //根据 aid tid rid 查找对应的订单的处理时间
             ao = agencyMapper.findAgencyOrder(aid, fo.getTid(), fo.getRouteId());
             fo.setAgencyOrder(ao);
-
         }
-
         return flightOrderList;
     }
 
@@ -137,17 +134,23 @@ public class AgencyServiceImpl implements AgencyService {
         //根据agencyId查找对应的游客id
         List<Traveller> tids = agencyMapper.findTids(aid);
         List<Traveller> travellers = new ArrayList<>();
-        List<Route> routes = new ArrayList<>();
-        AgencyOrder agencyOrder = null;
+        List<Route> routes;
+        AgencyOrder agencyOrder;
         //根据查询到的tid查找对应的traveller的信息
-        Traveller traveller = null;
+        Traveller traveller;
         for(Traveller tid:tids){
-            traveller = agencyMapper.findTraById(tid.getId());
+            Integer iidd=tid.getId();
+            System.out.println(iidd);
+            traveller = agencyMapper.findTraById(iidd);
+            System.out.println(traveller.toString());
             //根据tid和aid查询出对应的路线id
-            routes = agencyMapper.findRidsByTidAndAid(tid.getId(), aid);
+            routes = agencyMapper.findRidsByTidAndAid(iidd, aid);
+            System.out.println(routes.toString());
+            System.out.println(iidd);
             //根据rid tid aid 查找到对应的订单信息
             for(Route route:routes){
-                agencyOrder = agencyMapper.findAgencyOrder(aid, tid.getId(), route.getRouteId());
+                agencyOrder = agencyMapper.findAgencyOrder(aid, iidd, route.getRouteId());
+                //System.out.println(agencyOrder.toString());
                 route.setAgencyOrder(agencyOrder);
             }
             traveller.setRouteList(routes);
