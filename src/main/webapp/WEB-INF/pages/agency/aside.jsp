@@ -53,7 +53,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/agencyController/agency-info">
+							href="${pageContext.request.contextPath}/agencyController/agency-info"?id=${user.id}">
 						<i class="fa fa-circle-o"></i> 基本信息
 					</a></li>
 				</ul></li>

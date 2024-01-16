@@ -103,28 +103,31 @@ public class AgencyServiceImpl implements AgencyService {
     }
     //    获取aid,通过aid 查找flightOrder 获取该旅行社对应的相关的航班信息
     @Override
-    public List<FlightOrder> findFOrder(String aid) {
-        List<FlightOrder> flightOrderList;
-        Traveller traveller;
-        Flight flight;
-        AgencyOrder ao;
+    public List<FlightOrder> findFOrder(String aid){
+        List<FlightOrder> flightOrderList = new ArrayList<>();
+        Traveller traveller = null;
+        Flight flight = null;
+        AgencyOrder ao = null;
+
         flightOrderList = agencyMapper.findFOrder(aid);
-        System.out.println(flightOrderList);
-        System.out.println(aid);
         //如果尚未订单，则返回空
-        if(flightOrderList == null){
+        if(flightOrderList == null ){
             return null;
         }
         //根据查找到的flightOrder来查找对应的traveller 和 flight的 信息
         for(FlightOrder fo:flightOrderList){
             flight = agencyMapper.findFlightById(fo.getFlightId());
             fo.setFlight(flight);
+
             traveller = agencyMapper.findTraById(fo.getTid());
             fo.setTraveller(traveller);
+
             //根据 aid tid rid 查找对应的订单的处理时间
             ao = agencyMapper.findAgencyOrder(aid, fo.getTid(), fo.getRouteId());
             fo.setAgencyOrder(ao);
+
         }
+
         return flightOrderList;
     }
 
@@ -140,13 +143,13 @@ public class AgencyServiceImpl implements AgencyService {
         Traveller traveller;
         for(Traveller tid:tids){
             Integer iidd=tid.getId();
-            System.out.println(iidd);
+            //System.out.println(iidd);
             traveller = agencyMapper.findTraById(iidd);
-            System.out.println(traveller.toString());
+            //System.out.println(traveller.toString());
             //根据tid和aid查询出对应的路线id
             routes = agencyMapper.findRidsByTidAndAid(iidd, aid);
-            System.out.println(routes.toString());
-            System.out.println(iidd);
+            //System.out.println(routes.toString());
+           // System.out.println(iidd);
             //根据rid tid aid 查找到对应的订单信息
             for(Route route:routes){
                 agencyOrder = agencyMapper.findAgencyOrder(aid, iidd, route.getRouteId());
@@ -175,5 +178,10 @@ public class AgencyServiceImpl implements AgencyService {
         ao.setRoute(route);
 
         return ao;
+    }
+    //根据aid查找对应的agency信息
+    @Override
+    public Agency findAgencyById(String aid){
+        return agencyMapper.findAgencyById(aid);
     }
 }

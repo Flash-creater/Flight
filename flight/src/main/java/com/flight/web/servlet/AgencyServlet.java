@@ -117,7 +117,6 @@ public class AgencyServlet extends BaseServlet {
         //2.将航班信息返回到airline-list的航班信息
         request.setAttribute("flightList", flightList);
         request.getRequestDispatcher("/pages/agency/airline-list.jsp?tid="+tid + "&&rid=" + rid).forward(request, response);
-
     }
     //旅行社进行订票时，对具体的票的信息和 旅客信息进行确认
     public void flightDetail(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {

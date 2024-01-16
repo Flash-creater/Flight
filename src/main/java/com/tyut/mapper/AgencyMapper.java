@@ -20,7 +20,7 @@ public interface AgencyMapper {
     public void subEconomyBeatCount(String flightId);
     public List<FlightOrder> findFOrder(String aid);
     public Traveller findTraById(Integer tid);
-    public AgencyOrder findAgencyOrder(@Param("aid") String aid, @Param("tid") Integer tid, @Param("rid") String rid);
+    public AgencyOrder findAgencyOrder(@Param("aid") String aid, @Param("tid") Integer tid, @Param("routeId") String routeId);
     public AgencyOrder findOrderById(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") Integer tid);
     public Agency findAgencyById(String id);
     public List<Route> findRouteByAid(String id);
