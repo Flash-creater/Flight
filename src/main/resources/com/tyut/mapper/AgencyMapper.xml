@@ -8,7 +8,7 @@
         select * from flightinfo where 1=1 LIMIT 50
     </select>
     <select id="findFlightByCity" parameterType="String" resultType="Flight">
-        select * from flightinfo where departureCity=#{departureCity}
+        select * from flightinfo where departureCity=#{departureCity} limit 50
     </select>
     <insert id="addOrder" >
         insert into flightorder (aid, tid, routeId, flightId, payStatus, orderPrice, beat, payTime) values (#{aid},#{tid},#{routeId},#{flightId},#{payStatus},#{orderPrice},#{beat},#{payTime})

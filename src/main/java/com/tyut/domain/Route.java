@@ -20,6 +20,16 @@ public class Route implements Serializable {
     private String departureTimeStr;
     //出发城市
     private String departureCity;
+    private String finalCity;
+
+    public String getFinalCity() {
+        return finalCity;
+    }
+
+    public void setFinalCity(String finalCity) {
+        this.finalCity = finalCity;
+    }
+
     //获取路线的订单信息
     private AgencyOrder agencyOrder;
 

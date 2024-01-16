@@ -21,4 +21,6 @@ public interface AgencyService {
     boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, double price);
     //获取aid,通过aid 查找flightOrder 获取该旅行社对应的相关的航班信息
     List<FlightOrder> findFOrder(String aid) ;
+    //根据aid查找agency
+    Agency findAgencyById(String aid);
 }
