@@ -14,7 +14,7 @@ public interface AgencyMapper {
     public boolean addOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") String tid, @Param("flightId") String flightId, @Param("beat") String beat, @Param("peice") double price);
     public Flight findFlightById(String fid);
     public FlightOrder findFOrderByIds(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") int tid, @Param("flightId") String flightId);
-    public boolean addFOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") int tid, @Param("flightId") String flightId, @Param("beat") String beat, @Param("price") double price);
+    public boolean addFOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") int tid, @Param("flightId") String flightId, @Param("beat") String beat, @Param("orderPrice") double orderPrice);
     public void subFirstBeatCount(String flightId);
     public void subBusinessBeatCount(String flightId);
     public void subEconomyBeatCount(String flightId);

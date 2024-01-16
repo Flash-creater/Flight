@@ -219,7 +219,7 @@
             </div>
             <!--费用信息/--> <!--工具栏-->
             <div class="box-tools text-center">
-                <a href="${pageContext.request.contextPath}/agencyController/addFlightOrder?aid=${user.id}&&fid=${flight.flightId}&&tid=${flight.traveller.id}&&price=${param.price}&&rid=${param.rid}&&beat=${param.beat}">
+                <a href="${pageContext.request.contextPath}/agencyController/addFlightOrder?aid=${user.id}&&flightId=${flight.flightId}&&tid=${flight.traveller.id}&&orderPrice=${param.price}&&routeId=${param.rid}&&beat=${param.beat}">
                     <button type="button" class="btn bg-default" id="exitOrder">提交</button>
                 </a>
                 <button type="button" class="btn bg-default"

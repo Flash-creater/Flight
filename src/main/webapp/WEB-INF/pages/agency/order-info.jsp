@@ -225,7 +225,7 @@
             <div class="box-tools text-center">
 <%--                <a href="${pageContext.request.contextPath}/agency/findFlight?rid=${route.routeId}&&tid=${traveller.id}&&city=${route.departureCity}" class="btn bg-olive btn-xs" id="info">订票</a>--%>
 
-                <a href="${pageContext.request.contextPath}/agency/findFlight?rid=${ao.route.routeId}&&tid=${ao.traveller.id}&&city=${ao.route.departureCity}">
+                <a href="${pageContext.request.contextPath}/agency/findFlight?routeId=${ao.route.routeId}&&tid=${ao.traveller.id}&&city=${ao.route.departureCity}">
                     <button type="button" class="btn bg-default" id="order">订票</button>
                 </a>
                 <button type="button" class="btn bg-default"
