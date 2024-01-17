@@ -29,7 +29,6 @@ public class TravellerController {
     @RequestMapping("/isLogin")
     public String isLogin(HttpServletRequest request, HttpServletResponse response, Traveller traveller) {
         boolean flag = travellerService.isLogin(traveller);
-        System.out.println(flag);
         String auto_login = request.getParameter("auto_login");
         if (flag) {
             if (auto_login != null) {
@@ -94,7 +93,7 @@ public class TravellerController {
     @RequestMapping("/register")
     public String addTraveller(Traveller traveller, HttpServletRequest request, HttpServletResponse response) {
         int i = travellerService.addTraveller(traveller);
-        if (i != 0) return mainJsp(request);
+        if (i != 0) return "login/traveller";
         else {
             return "register/register";
         }
@@ -256,7 +255,6 @@ public class TravellerController {
                 return "traveller/order-info";
             }
             boolean isOk = travellerService.addOrder(aid, routeId, traveller.getId(), beat);
-            System.out.println(isOk);
             travellerService.subBalance(traveller, price);
             Traveller newTraveller = (Traveller)request.getSession().getAttribute("user");
             newTraveller.setBalance(traveller.getBalance() - price);
@@ -378,7 +376,7 @@ public class TravellerController {
             flightOrders = travellerService.findPayOrder(tid);
             if(flightOrders.size() == 0){
                 request.setAttribute("errMsg", "您尚未有【已支付】的订单！");
-                return "traveller/noPayOrder";
+                return "traveller/payOrder";
             }else{
                 //3.将航班信息返回到airline-list的航班信息
                 request.setAttribute("flightOrderList", flightOrders);
@@ -439,6 +437,7 @@ public class TravellerController {
         FlightOrder fo = null;
         try {
             fo = travellerService.findFlightOrderById(id);
+            System.out.println(fo);
             //3.将对应的航班信息传递给ticket-info.jsp页面
             request.setAttribute("flightOrder", fo);
             return "traveller/invoice";
@@ -456,6 +455,7 @@ public class TravellerController {
         FlightOrder fo = null;
         try {
             fo = travellerService.findFlightOrderById(id);
+            System.out.println(fo);
             //3.将对应的航班信息传递给ticket-info.jsp页面
             request.setAttribute("flightOrder", fo);
             return "traveller/invoice-print";
@@ -492,10 +492,10 @@ public class TravellerController {
                 // 3.发送取票凭证的提示 邮件
                 String content = "【取票凭证】：<br/>" +
                         fo.getTraveller().getTrueName()+ "先生：<br/>" +
-                        "  您于" + fo.getPayTimeStr() +"在" + "<a href='http://8.131.117.230/'>【机票预订系统】</a>" +
+                        "  您于" + fo.getPayTimeStr() +"在" + "<a href='http://localhost:8080/Flight/adminController/travellerLogin'>【机票预订系统】</a>" +
                         "中支付了您在【" +fo.getAgency().getAgencyName()+"旅行社】预定的航班机票：<br/>" +
                         "航班编号：" +fo.getFlight().getFlightId() + "      " +
-                        "时间：" +  fo.getFlight() + "——————" + fo.getFlight() + "<br/>" +
+                        "时间：" +  fo.getFlight().getDepartureTime() + "——————" + fo.getFlight().getArrivalTime() + "<br/>" +
                         "城市：" + fo.getFlight().getDepartureCity() + "——————" + fo.getFlight().getFinalCity() +
                         "   舱位等级：" + fo.getBeat() + "  价格：" +fo.getOrderPrice()+ "<br/>" +
                         "<strong>请在飞机起飞前一天前凭取票通知和帐单交款取票。</strong>";
@@ -536,5 +536,53 @@ public class TravellerController {
 
     }
 
+    @RequestMapping("/forgetPassword")
+    public String forgetPassword(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //1.获取参数
+        String email = request.getParameter("email");
+        //2.调用Service判断邮箱是否正确
+        Traveller existUser = null;
+        try {
+            existUser = travellerService.findByEmail(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(existUser == null ){
+            //2.1没有查询到用户，说明邮箱不正确
+            //返回错误信息，
+            request.setAttribute("err_info", "请确认您的邮箱正确！");
+            return "forgetPassword";
+        }else{
+            //2.2邮箱正确，向邮箱发送邮件，并提示用户注意查收邮箱
+            //3.激活邮件，发送邮件正文
+            String content = "<a href=http://localhost:8080/Flight/travellerController/toresetpassword?id=" + existUser.getId() +">点击重置您在【机票预订系统】中设置的密码</a>";
+            MailUtils.sendMail(email, content, "【机票预订系统】重置密码邮件");
+            request.setAttribute("err_info", "我们已经向您的邮箱发送了【重置密码】邮件，请注意查收！");
+            return "forgetPassword";
+        }
+    }
+    @RequestMapping("/toresetpassword")
+    public String toResetassword(HttpServletRequest request, HttpServletResponse response){
+        return "resetPassword";
+    }
+
+
+    @RequestMapping("/resetpassword")
+    public String resetPassword(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //1.获取参数
+        String id = request.getParameter("id");
+        String resetPassword = request.getParameter("resetPassword");
+        //2.调用service进行密码重置操作
+        boolean isOk = travellerService.modifyPassword(id, resetPassword);
+        if(isOk){
+            //修改成功
+            // 2.1跳转到登陆页面
+            return "login/traveller";
+        }else{
+            //2.2 修改失败，返回提示信息
+            request.setAttribute("err_info", "修改发生错误，请联系管理员！！");
+            return "resetPassword";
+        }
+    }
 }
 

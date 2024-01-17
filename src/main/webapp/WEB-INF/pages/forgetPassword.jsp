@@ -36,7 +36,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">忘记密码</p>
         <div class="text-center" style="color:red" id="errMsg">${err_info}</div>
-        <form action="${pageContext.request.contextPath}/reset/forgetPassword" method="post">
+        <form action="${pageContext.request.contextPath}/travellerController/forgetPassword" method="post">
             <div class="form-group has-feedback">
                 <input type="email" name="email" class="form-control"
                        placeholder="请输入您绑定的邮箱"> <span

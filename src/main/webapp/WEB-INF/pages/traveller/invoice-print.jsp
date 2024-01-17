@@ -46,7 +46,7 @@
             <div class="col-xs-12">
                 <h2 class="page-header">
                     <i class="fa fa-globe"></i> 机票预订系统.
-                    <small class="pull-right" >Date: <span class="time">2/10/2014</span></small>
+                    <small class="pull-right" >Date: <span class="time">1/10/2024</span></small>
                 </h2>
             </div>
             <!-- /.col -->
@@ -59,7 +59,7 @@
                 <address>
                     <strong>${flightOrder.flight.departureCity}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>${flightOrder.flight.finalCity}</strong><br>
-                    ${flightOrder.flight.departureTimeStr}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${flightOrder.flight.arrivalTimeStr}<br>
+                    ${flightOrder.flight.departureTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${flightOrder.flight.arrivalTime}<br>
                     ${flightOrder.flight.departureCity}机场, CA 94107&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp${flightOrder.flight.finalCity}机场, CA 94107<br>
                 </address>
             </div>

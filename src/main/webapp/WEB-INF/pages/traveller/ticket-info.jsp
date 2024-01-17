@@ -124,7 +124,7 @@
                                 <i class="fa fa-calendar"></i>
                             </div>
                             <input type="text" class="form-control pull-right"
-                                   id="datepicker-a6" value="${flightOrder.flight.departureTimeStr}"
+                                   id="datepicker-a6" value="${flightOrder.flight.departureTime}"
                                    readonly="readonly">
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                             </div>
                             <input type="text" class="form-control pull-right"
                                    id="datepicker-a3" readonly="readonly"
-                                   value="${flightOrder.flight.arrivalTimeStr}">
+                                   value="${flightOrder.flight.arrivalTime}">
                         </div>
                     </div>
                 </div>

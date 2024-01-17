@@ -46,7 +46,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">用户密码重置</p>
         <div class="text-center" style="color:red" id="errMsg">${err_info}</div>
-        <form action="${pageContext.request.contextPath}/reset/resetPassword?id=${param.id}" method="post" id="modifyForm">
+        <form action="${pageContext.request.contextPath}/travellerController/resetpassword?id=${param.id}" method="post" id="modifyForm">
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="重置密码" name="resetPassword" id="modify">
                 <span class="fa  fa-tag form-control-feedback"></span>

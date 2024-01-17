@@ -207,7 +207,7 @@
             <!-- this row will not appear when printing -->
             <div class="row no-print">
                 <div class="col-xs-12">
-                    <a href="${pageContext.request.contextPath}/traveller/printTicket?id=${flightOrder.id}" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> 打印</a>
+                    <a href="${pageContext.request.contextPath}/travellerController/printTicket?id=${flightOrder.id}" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> 打印</a>
                 </div>
             </div>
         </section>

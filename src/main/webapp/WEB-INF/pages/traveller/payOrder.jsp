@@ -132,8 +132,8 @@
                                 <td>${flightOrder.flight.flightId}</td>
                                 <td>${flightOrder.flight.departureCity}</td>
                                 <td>${flightOrder.flight.finalCity}</td>
-                                <td>${flightOrder.flight.departureTimeStr}</td>
-                                <td>${flightOrder.flight.arrivalTimeStr}</td>
+                                <td>${flightOrder.flight.departureTime}</td>
+                                <td>${flightOrder.flight.arrivalTime}</td>
                                 <td>${flightOrder.payStatusStr}</td>
                                 <td>${flightOrder.payTimeStr}</td>
                                 <td>${flightOrder.beat}</td>
