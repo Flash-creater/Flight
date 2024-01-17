@@ -135,33 +135,21 @@
                                     <td>舱位等级</td>
                                     <td colspan="2" class="text-center">座位数</td>
                                     <td colspan="2" class="text-center">票面价</td>
-                                    <td class="text-center">操作</td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+2}'" data-tt-parent-id="${status.index}">
                                     <td>${flight.beat.firstClass}</td>
                                     <td colspan="2" class="text-center">${flight.beat.firstCount}</td>
                                     <td colspan="2" class="text-center">￥${flight.beat.firstPrice}</td>
-                                    <td class="text-center" colspan="2">
-                                        <a href="#" class="btn bg-olive btn-xs">
-                                            无操作
-                                        </a>
-                                    </td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+3}'" data-tt-parent-id="${status.index}">
                                     <td>${flight.beat.businessClass}</td>
                                     <td colspan="2" class="text-center">${flight.beat.businessCount}</td>
                                     <td colspan="2" class="text-center">${flight.beat.businessPrice}</td>
-                                    <td class="text-center" colspan="2">
-                                        <a href="#" class="btn bg-olive btn-xs">无操作</a>
-                                    </td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+4}'" data-tt-parent-id="${status.index}">
                                     <td>${flight.beat.economyClass}</td>
                                     <td colspan="2" class="text-center">${flight.beat.economyCount}</td>
                                     <td colspan="2" class="text-center">${flight.beat.economyPrice}</td>
-                                    <td class="text-center" colspan="2">
-                                        <a href="#" class="btn bg-olive btn-xs">无操作</a>
-                                    </td>
                                 </tr>
                             </c:forEach>
                             </tbody>
