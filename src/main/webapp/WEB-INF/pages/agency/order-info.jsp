@@ -147,7 +147,7 @@
                                 <i class="fa fa-calendar"></i>
                             </div>
                             <input type="text" class="form-control pull-right"
-                                   id="datepicker-a6" value="${ao.route.departureTimeStr}"
+                                   id="datepicker-a6" value="${ao.route.departureTime}"
                                    readonly="readonly">
                         </div>
                     </div>
@@ -225,9 +225,9 @@
             <div class="box-tools text-center">
 <%--                <a href="${pageContext.request.contextPath}/agency/findFlight?rid=${route.routeId}&&tid=${traveller.id}&&city=${route.departureCity}" class="btn bg-olive btn-xs" id="info">订票</a>--%>
 
-                <a href="${pageContext.request.contextPath}/agencyController/findFlight?routeId=${ao.route.routeId}&&tid=${ao.traveller.id}&&depcity=${ao.route.departureCity}&&fincity=${ao.route.finalCity}">
-                    <button type="button" class="btn bg-default" id="order">订票</button>
-                </a>
+<%--                <a href="${pageContext.request.contextPath}/agencyController/findFlight?routeId=${ao.route.routeId}&&tid=${ao.traveller.id}&&departureCity=${ao.route.departureCity}&&finalCity=${ao.route.finalCity}">--%>
+<%--                    <button type="button" class="btn bg-default" id="order">订票</button>--%>
+<%--                </a>--%>
                 <button type="button" class="btn bg-default"
                         onclick="history.back(-1);">返回</button>
             </div>

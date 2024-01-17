@@ -140,9 +140,7 @@
                                     <td colspan="2" class="text-center">${flight.beat.firstCount}</td>
                                     <td colspan="2" class="text-center">${flight.beat.firstPrice}</td>
                                     <td class="text-center" colspan="2">
-                                        <a href="${pageContext.request.contextPath}/agencyController/flightDetail?rid=${param.rid}&&fid=${flight.flightId}&&tid=${param.tid}&&price=${flight.beat.firstPrice}&&beat=${flight.beat.firstClass}" class="btn bg-olive btn-xs">
-                                            订票
-                                        </a>
+                                        <a href="${pageContext.request.contextPath}/agencyController/flightDetail?rid=${param.rid}&&fid=${flight.flightId}&&tid=${param.tid}&&price=${flight.beat.firstPrice}&&beat=${flight.beat.firstClass}" class="btn bg-olive btn-xs">订票</a>
                                     </td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+3}'" data-tt-parent-id="${status.index}">
@@ -158,9 +156,7 @@
                                     <td colspan="2" class="text-center">${flight.beat.economyCount}</td>
                                     <td colspan="2" class="text-center">${flight.beat.economyPrice}</td>
                                     <td class="text-center" colspan="2">
-                                        <a href="${pageContext.request.contextPath}/agencyController/flightDetail?fid=${flight.flightId}&&rid=${param.rid}&&tid=${param.tid}&&price=${flight.beat.economyPrice}&&beat=${flight.beat.economyClass}" class="btn bg-olive btn-xs">
-                                            订票
-                                        </a>
+                                        <a href="${pageContext.request.contextPath}/agencyController/flightDetail?fid=${flight.flightId}&&rid=${param.rid}&&tid=${param.tid}&&price=${flight.beat.economyPrice}&&beat=${flight.beat.economyClass}" class="btn bg-olive btn-xs">订票</a>
                                     </td>
                                 </tr>
                             </c:forEach>

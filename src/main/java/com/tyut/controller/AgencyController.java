@@ -1,9 +1,6 @@
 package com.tyut.controller;
 
-import com.tyut.domain.Agency;
-import com.tyut.domain.Flight;
-import com.tyut.domain.FlightOrder;
-import com.tyut.domain.Traveller;
+import com.tyut.domain.*;
 import com.tyut.mapper.AgencyMapper;
 import com.tyut.service.AgencyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +99,7 @@ public class AgencyController {
     }
 
     @RequestMapping("/addFlightOrder")
-    public String addFlightOrder(String aid, String tid, String fid, String routeId, String flightId, String beat, Integer price, Model model, HttpServletRequest httpServletRequest) {
+    public String addFlightOrder(String aid, String tid, String fid, String routeId, String flightId, String beat, Integer orderPrice, Model model, HttpServletRequest httpServletRequest) {
         FlightOrder fo = agencyService.findFOrderByIds(aid, routeId, tid, flightId);
         if (fo != null) {
             //3.1如果已经产生了对应的订单，则提示错误信息，
@@ -111,7 +108,8 @@ public class AgencyController {
         } else {
             //3.2 没有产生过订单，则生成新的订单
             boolean isOk = false;
-            isOk = agencyService.addFOrder(aid, routeId, tid, flightId, beat, price);
+            isOk = agencyService.addFOrder(aid, routeId, tid, flightId, beat, orderPrice);
+            System.out.println(orderPrice);
             if (isOk) {
                 //订单生成成功，返回 [我的旅行社] 界面
                 model.addAttribute("errMsg", "产生订单成功,请到【订单管理】--【我的订单】进行查看！！");
@@ -128,11 +126,11 @@ public class AgencyController {
     public String findFOrder(HttpServletRequest request, HttpServletResponse response) throws Exception {
         //1.获取aid,通过aid 查找flightOrder 获取该旅行社对应的相关的航班信息
         String aid = request.getParameter("aid");
-        System.out.println(aid);
         //2.调用service 查找到相关的traveller flight agencyOrder的信息
         List<FlightOrder> flightOrderList = null;
         try {
             flightOrderList = agencyService.findFOrder(aid);
+            System.out.println(flightOrderList);
             if (flightOrderList.size() == 0) {
                 request.setAttribute("errMsg", "您尚未任何航班订单！！");
                 return ("/agency/flightOrder-list");
@@ -219,7 +217,29 @@ public class AgencyController {
         request.setAttribute("flights", flights);
         return ("/agency/airline-list");
     }
-
+    @RequestMapping("/orderInfo")
+    public String orderInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //1.获取传过来的tid,rid,aid，获取响应的route订单信息
+        int tid = Integer.parseInt(request.getParameter("tid"));
+        String aid = request.getParameter("aid");
+        String routeId = request.getParameter("rid");
+        //2.调用service获取agencyOrder对象
+        AgencyOrder ao = null;
+        try {
+            ao = agencyService.findAgencyOrderByIds(tid, aid, routeId);
+        } catch (Exception e) {
+            //发生异常，返回500.jsp
+            return("/agency/500");
+        }
+        if(ao == null){
+            //发生错误，返回500.jsp
+            return ("/agency/500");
+        }else{
+            //向myAgencyOrder-info.jsp页面传回ao对象
+            request.setAttribute("ao", ao);
+            return("/agency/order-info");
+        }
+    }
 }
 
 

@@ -11,8 +11,8 @@ public interface AgencyMapper {
     public List<Flight> findAllFlight();
     public List<Flight> findFlightByCities(@Param("departureCity") String departureCity, @Param("finalCity") String finalCity);
     public void handlerAOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") int tid, @Param("handlerTime") Date handlerTime);
-    public boolean addOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") String tid, @Param("flightId") String flightId, @Param("beat") String beat, @Param("peice") double price);
-    public Flight findFlightById(String fid);
+    public boolean addOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") String tid, @Param("flightId") String flightId, @Param("beat") String beat, @Param("orderPrice") Integer orderPrice);
+    public Flight findFlightById(String flightId);
     public FlightOrder findFOrderByIds(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") int tid, @Param("flightId") String flightId);
     public boolean addFOrder(@Param("aid") String aid, @Param("routeId") String routeId, @Param("tid") int tid, @Param("flightId") String flightId, @Param("beat") String beat, @Param("orderPrice") Integer orderPrice);
     public void subFirstBeatCount(String flightId);
