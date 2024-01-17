@@ -44,11 +44,14 @@ public class AgencyServiceImpl implements AgencyService {
     }
     //根据出发的城市查找对应的航班信息
     @Override
-    public List<Flight> findFlightByCity(String city){
+    public List<Flight> findFlightByCities(String departureCity, String finalCity) {
         List<Flight> flights = null;
         Beat beat = null;
         //1.先查询出所有的航班信息
-        flights = agencyMapper.findFlightByCity(city);
+        flights = agencyMapper.findFlightByCities(departureCity, finalCity);
+        System.out.println(departureCity);
+        System.out.println(finalCity);
+        System.out.println(flights.toString());
         //2.根据航班的编号flightId查询出所对应的座位信息
         for(Flight flight:flights){
             beat = agencyMapper.findBeatByFid(flight.getFlightId());
@@ -77,7 +80,7 @@ public class AgencyServiceImpl implements AgencyService {
     }
     //产生新的flightOrder订单
     @Override
-    public boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, double price) {
+    public boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, Integer price) {
         //1.修改对应的agencyOrder中的orderStatus 和 handlerTime
         //1.1 生成此时的处理时间handlerTime
         Date handlerTime = new Date();

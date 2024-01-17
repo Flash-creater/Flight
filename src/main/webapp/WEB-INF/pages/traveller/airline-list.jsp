@@ -120,7 +120,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${flights}" var="flight" varStatus="status">
+                            <c:forEach items="${flightList}" var="flight" varStatus="status">
                                 <tr data-tt-id="${status.index}">
                                     <td>${flight.flightId}</td>
                                     <td>${flight.craftType}</td>
