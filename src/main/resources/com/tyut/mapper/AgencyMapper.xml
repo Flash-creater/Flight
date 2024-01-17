@@ -35,7 +35,7 @@
         update beat set economyCount=economyCount-1 where flightId=#{flightId}
     </update>
     <select id="findFOrder" parameterType="String" resultType="FlightOrder">
-        select * from agency_order where aid=#{aid}
+        select * from flightorder where aid=#{aid}
     </select>
     <select id="findTraById" parameterType="Integer" resultType="Traveller">
         select * from traveller where id = #{id}

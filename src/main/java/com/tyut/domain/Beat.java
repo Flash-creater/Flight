@@ -6,19 +6,19 @@ import java.io.Serializable;
 public class Beat implements Serializable {
     private String firstClass;
     //头等舱的价格
-    private double firstPrice;
+    private Integer firstPrice;
     //头等舱的座位数
     private int firstCount;
 
     private String businessClass;
     //商务舱的价格
-    private double businessPrice;
+    private Integer businessPrice;
     //商务舱的座位数
     private int businessCount;
 
     private String economyClass;
     //经济舱的价格
-    private double economyPrice;
+    private Integer economyPrice;
     //经济舱的座位数
     private int economyCount;
 
@@ -46,11 +46,11 @@ public class Beat implements Serializable {
         this.economyClass = economyClass;
     }
 
-    public double getFirstPrice() {
+    public Integer getFirstPrice() {
         return firstPrice;
     }
 
-    public void setFirstPrice(double firstPrice) {
+    public void setFirstPrice(Integer firstPrice) {
         this.firstPrice = firstPrice;
     }
 
@@ -62,11 +62,11 @@ public class Beat implements Serializable {
         this.firstCount = firstCount;
     }
 
-    public double getBusinessPrice() {
+    public Integer getBusinessPrice() {
         return businessPrice;
     }
 
-    public void setBusinessPrice(double businessPrice) {
+    public void setBusinessPrice(Integer businessPrice) {
         this.businessPrice = businessPrice;
     }
 
@@ -78,11 +78,11 @@ public class Beat implements Serializable {
         this.businessCount = businessCount;
     }
 
-    public double getEconomyPrice() {
+    public Integer getEconomyPrice() {
         return economyPrice;
     }
 
-    public void setEconomyPrice(double economyPrice) {
+    public void setEconomyPrice(Integer economyPrice) {
         this.economyPrice = economyPrice;
     }
 

@@ -129,12 +129,12 @@
                             <tr>
                                 <td>${status.count}</td>
                                 <td>${flightOrder.flight.flightId}</td>
-                                <td>${flightOrder.flight.departureTimeStr}--${flightOrder.flight.arrivalTimeStr}</td>
+                                <td>${flightOrder.flight.departureTime}--${flightOrder.flight.arrivalTime}</td>
                                 <td>${flightOrder.flight.departureCity}--${flightOrder.flight.finalCity}</td>
                                 <td>${flightOrder.traveller.trueName}</td>
                                 <td>${flightOrder.traveller.phone}</td>
-                                <td>${flightOrder.agencyOrder.handlerTimeStr}</td>
-                                <td>${flightOrder.payStatusStr}</td>
+                                <td>${flightOrder.agencyOrder.handlerTime}</td>
+                                <td>${flightOrder.payStatus}</td>
                                 <td>${flightOrder.payTimeStr}</td>
                             </tr>
                             </c:forEach>
