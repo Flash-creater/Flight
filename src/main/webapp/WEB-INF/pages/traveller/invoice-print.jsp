@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/AdminLTE/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/AdminLTE.min.css">
 </head>
 
 <body>
@@ -54,13 +54,13 @@
         <!-- info row -->
         <div class="row invoice-info">
             <div class="col-sm-4 invoice-col">
-                From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To
                 <address>
-                    <strong>${flightOrder.flight.departureCity}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <strong>${flightOrder.flight.departureCity}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>${flightOrder.flight.finalCity}</strong><br>
                     ${flightOrder.flight.departureTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${flightOrder.flight.arrivalTime}<br>
-                    ${flightOrder.flight.departureCity}机场, CA 94107&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp${flightOrder.flight.finalCity}机场, CA 94107<br>
+                    ${flightOrder.flight.departureAirport}, ${flightOrder.flight.dCode}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp${flightOrder.flight.arrivalAirport}, ${flightOrder.flight.aCode}<br>
                 </address>
             </div>
             <!-- /.col -->
@@ -123,7 +123,7 @@
             </div>
             <!-- /.col -->
             <div class="col-xs-6">
-                <p class="lead">Amount Due <span class="time">2/22/2014</span></p>
+                <p class="lead">Amount Due <span class="time">1/10/2024</span></p>
 
                 <div class="table-responsive">
                     <table class="table">

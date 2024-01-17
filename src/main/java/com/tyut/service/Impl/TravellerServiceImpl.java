@@ -231,7 +231,6 @@ public class TravellerServiceImpl implements TravellerService {
         fo.setAgency(agency);
 
         traveller = travellerMapper.findTravellerById(fo.getTid().toString());
-        System.out.println(traveller.toString());
         fo.setTraveller(traveller);
         return fo;
     }
