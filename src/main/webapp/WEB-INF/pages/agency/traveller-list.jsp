@@ -157,7 +157,7 @@
                                         <td id="status">${route.agencyOrder.orderStatusStr}</td>
                                         <td class="text-center">
                                             <a href="${pageContext.request.contextPath}/agencyController/orderInfo?aid=${user.id}&&rid=${route.routeId}&&tid=${traveller.id}" class="btn bg-olive btn-xs">详情</a>
-                                            <a href="${pageContext.request.contextPath}/agencyController/findFlight?rid=${route.routeId}&&tid=${traveller.id}&&city=${route.departureCity}" class="btn bg-olive btn-xs" id="info">订票</a>
+                                            <a href="${pageContext.request.contextPath}/agencyController/findFlight?rid=${route.routeId}&&tid=${traveller.id}&&departureCity=${route.departureCity}&&finalCity=${route.finalCity}" class="btn bg-olive btn-xs" id="info">订票</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -9,7 +9,7 @@ public interface AgencyService {
     public Boolean isLogin(Agency agency);
     List<Traveller> findAllTraveller(String id);
     public List<Flight> findAllFlight();
-    public List<Flight> findFlightByCity(String city);
+    public List<Flight> findFlightByCities(String departureCity, String finalCity);
     //旅行社 查询 旅客选择的旅行社的路线 的订单 的详情
     AgencyOrder findAgencyOrderByIds(Integer tid, String aid, String routeId);
 
@@ -18,7 +18,7 @@ public interface AgencyService {
     //    根据对应的routeId，aid, tid,fid查找唯一的订单
     FlightOrder findFOrderByIds(String aid, String routeId, String tid, String flightId);
     //产生新的flightOrder订单
-    boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, double price);
+    boolean addFOrder(String aid, String routeId, String tid, String flightId, String beat, Integer price);
     //获取aid,通过aid 查找flightOrder 获取该旅行社对应的相关的航班信息
     List<FlightOrder> findFOrder(String aid) ;
     //根据aid查找agency

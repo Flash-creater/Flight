@@ -127,14 +127,15 @@
                     <div class="col-md-2 title">路线名称</div>
                     <div class="col-md-4 data">
                         <input type="text" class="form-control" placeholder="路线名称"
-                               value="${ao.route.routeName }" readonly="readonly">
+                               value="${ao.route.routeName}" readonly="readonly">
                     </div>
 
                     <div class="col-md-2 title">出发城市</div>
                     <div class="col-md-4 data">
                         <input type="text" class="form-control" placeholder="出发城市"
-                               value="${ao.route.departureCity }" readonly="readonly">
+                               value="${ao.route.departureCity}" readonly="readonly">
                     </div>
+                    <div class="col-md-2 title">到达城市</div>
 
                     <div class="col-md-2 title">出发时间</div>
                     <div class="col-md-4 data">
