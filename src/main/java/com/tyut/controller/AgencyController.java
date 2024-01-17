@@ -58,6 +58,19 @@ public class AgencyController {
         }
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        //1.销毁session中的User对象
+        request.getSession().invalidate();
+        //2.销毁Cookie中的用户
+        Cookie cookie = new Cookie("auto", null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        //2.跳转到登陆入口页面
+        return "login/agency";
+    }
+
     @RequestMapping("/main")
     public String mainJsp(HttpServletRequest request) {
         request.getSession();
@@ -89,7 +102,7 @@ public class AgencyController {
     }
 
     @RequestMapping("/addFlightOrder")
-    public String addFlightOrder(String aid, String tid, String fid, String routeId, String flightId, String beat, double price, Model model, HttpServletRequest httpServletRequest) {
+    public String addFlightOrder(String aid, String tid, String fid, String routeId, String flightId, String beat, Integer price, Model model, HttpServletRequest httpServletRequest) {
         FlightOrder fo = agencyService.findFOrderByIds(aid, routeId, tid, flightId);
         if (fo != null) {
             //3.1如果已经产生了对应的订单，则提示错误信息，
@@ -190,13 +203,13 @@ public class AgencyController {
     public String findFlight(HttpServletRequest request, HttpServletResponse response)  throws Exception {
         //1.获取city获取当前路线的出发城市,来查找对应的航班
         String tid = request.getParameter("tid");
-        String city = request.getParameter("city");
+        String departureCity = request.getParameter("departureCity");
+        String finalCity = request.getParameter("finalCity");
         String rid = request.getParameter("rid");
-
         List<Flight> flights = null;
         //2.调用service查找出发城市是city的航班信息
         try {
-            flights = agencyService.findFlightByCity(city);
+            flights = agencyService.findFlightByCities(departureCity,finalCity);
         } catch (Exception e) {
             e.printStackTrace();
             //发生错误，跳转到错误页面
