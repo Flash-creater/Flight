@@ -37,7 +37,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/admin/findAllFlight">
+						href="${pageContext.request.contextPath}/adminController/findAllFlight">
 							<i class="fa fa-circle-o"></i> 航班列表
 					</a></li>
 				</ul></li>
@@ -48,7 +48,7 @@
 			</a>
 				<ul class="treeview-menu">
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/admin/allFlightOrder"> <i
+							href="${pageContext.request.contextPath}/adminController/allFlightOrder"> <i
 							class="fa fa-circle-o"></i> 订单列表
 					</a></li>
 				</ul></li>

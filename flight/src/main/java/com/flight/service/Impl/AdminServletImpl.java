@@ -62,4 +62,28 @@ public class AdminServletImpl implements AdminService {
         }
         return flightOrders;
     }
+    //查询航班对应的座位
+    @Override
+    public Beat findBeatByFid(String flightId) {
+        Beat beat = adminDao.findBeatByFid(flightId);
+        return beat;
+    }
+    //查询航班信息
+    @Override
+    public Flight findFlightById(String flightId) throws Exception
+        Flight flight = adminDao.findFlightById(flightId);
+        return flight;
+    }
+    //查询旅行社信息
+    @Override
+    public Agency findAgencyById(String aid) throws Exception {
+        Agency agency = adminDao.findAgencyById(aid);
+        return agency;
+    }
+    //查询旅客信息
+    @Override
+    public Traveller findTravellerById(String tid) throws Exception {
+        Traveller traveller = adminDao.findTravellerById(Integer parseInt(tid));
+        return traveller;
+    }
 }

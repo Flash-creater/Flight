@@ -4,5 +4,25 @@
     <select id="selectPassword" parameterType="admin" resultType="admin">
         select * from admin where name = #{name} and password = #{password}
     </select>
-
+    <select id="findAllFlight" resultType="Flight">
+        select * from flightinfo where 1=1 limit 50
+    </select>
+    <select id="findBeatByFid" parameterType="String" resultType="Beat">
+        select * from Beat where FlightId = #{FlightId}
+    </select>
+    <select id="findFlightOrderById" parameterType="Integer" resultType="FlightOrder">
+        select * from FlightOrder where id = #{id}
+    </select>
+    <select id="findFlightById" parameterType="String" resultType="Flight">
+        select * from flightinfo where FlightId = #{FlightId}
+    </select>
+    <select id="findAgencyById" parameterType="String" resultType="Agency">
+        select * from agency where id = #{id}
+    </select>
+    <select id="findTravellerById" parameterType="String" resultType="Traveller">
+        select * from Traveller where id= #{id}
+    </select>
+    <select id="findAllOrder" resultType="FlightOrder">
+        select * from FlightOrder where 1=1
+    </select>
 </mapper>
