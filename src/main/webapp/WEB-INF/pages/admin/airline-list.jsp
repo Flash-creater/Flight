@@ -110,24 +110,26 @@
                             <thead>
                             <tr>
                                 <th class="sorting_asc">航班编号</th>
+                                <th class="sorting_asc sorting_asc_disabled">机型</th>
                                 <th class="sorting_desc">出发城市</th>
+                                <th class="sorting_desc">出发机场</th>
                                 <th class="sorting_asc sorting_asc_disabled">到达城市</th>
+                                <th class="sorting_asc sorting_asc_disabled">到达机场</th>
                                 <th class="sorting_desc">出发时间</th>
                                 <th class="sorting_asc sorting_asc_disabled">到达时间</th>
-                                <th class="text-center">历时</th>
                             </tr>
                             </thead>
                             <tbody>
                             <c:forEach items="${flightList}" var="flight" varStatus="status">
                                 <tr data-tt-id="${status.index}">
                                     <td>${flight.flightId}</td>
+                                    <td>${flight.craftType}</td>
                                     <td>${flight.departureCity}</td>
+                                    <td>${flight.departureAirport}</td>
                                     <td>${flight.finalCity}</td>
-                                    <td>${flight.departureTimeStr}</td>
-                                    <td>${flight.arrivalTimeStr}</td>
-                                    <td class="text-center">
-                                        2小时
-                                    </td>
+                                    <td>${flight.arrivalAirport}</td>
+                                    <td>${flight.departureTime}</td>
+                                    <td>${flight.arrivalTime}</td>
                                 </tr>
                                 <tr data-tt-id="'${status.index}' + - + '${status.index+1}'" data-tt-parent-id="${status.index}" style="background:#f9f9f9">
                                     <td>舱位等级</td>

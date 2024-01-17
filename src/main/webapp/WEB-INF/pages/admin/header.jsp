@@ -38,7 +38,7 @@
 <%--								<a href="#" class="btn btn-default btn-flat">修改密码</a>--%>
 <%--							</div>--%>
 							<div class="pull-right">
-								<a href="${pageContext.request.contextPath}/admin/logout"
+								<a href="${pageContext.request.contextPath}/adminController/logout"
 									class="btn btn-default btn-flat">注销</a>
 							</div>
 						</li>

@@ -27,7 +27,7 @@
 		<ul class="sidebar-menu">
 			<li class="header">菜单</li>
 			<li id="admin-index"><a
-				href="${pageContext.request.contextPath}/pages/admin/main.jsp"><i
+				href="${pageContext.request.contextPath}/adminController/main"><i
 					class="fa fa-dashboard"></i> <span>首页</span></a></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
 					<span>航班信息</span> <span class="pull-right-container"> <i
@@ -37,7 +37,7 @@
 				<ul class="treeview-menu">
 
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/admin/findAllFlight">
+						href="${pageContext.request.contextPath}/adminController/findAllFlight">
 							<i class="fa fa-circle-o"></i> 航班列表
 					</a></li>
 				</ul></li>
@@ -48,7 +48,7 @@
 			</a>
 				<ul class="treeview-menu">
 					<li id="system-setting"><a
-							href="${pageContext.request.contextPath}/admin/allFlightOrder"> <i
+							href="${pageContext.request.contextPath}/adminController/findAllOrder"> <i
 							class="fa fa-circle-o"></i> 订单列表
 					</a></li>
 				</ul></li>

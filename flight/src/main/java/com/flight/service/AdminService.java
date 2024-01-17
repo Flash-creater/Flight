@@ -12,4 +12,12 @@ public interface AdminService {
     FlightOrder findFlightOrderById(String id) throws Exception;
     // 查询所有的订单
     List<FlightOrder> findAllOrder() throws Exception;
+    // 查询航班对应的座位
+    Beat findBeatByFid(String flightId);
+    // 查询航班信息
+    Flight findFlightById(String flightId) throws Exception;
+    // 查询旅行社信息
+    Agency findAgencyById(String aid) throws Exception;
+    // 查询旅客信息
+    Traveller findTravellerById(String toString) throws Exception;
 }

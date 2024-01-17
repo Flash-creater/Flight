@@ -70,7 +70,8 @@ public class AdminServlet extends BaseServlet {
     }
 
     // 获取订单信息
-    public void getOrderInfo(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+
+    public String getOrderInfo(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
         //1.获取航班订单的id
         String id = request.getParameter("id");
         //2.通过航班订单的id值获取具体的订单信息

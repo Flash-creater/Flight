@@ -132,14 +132,14 @@
                                 <td>${flightOrder.flight.flightId}</td>
                                 <td>${flightOrder.flight.departureCity}</td>
                                 <td>${flightOrder.flight.finalCity}</td>
-                                <td>${flightOrder.flight.departureTimeStr}</td>
-                                <td>${flightOrder.flight.arrivalTimeStr}</td>
+                                <td>${flightOrder.flight.departureTime}</td>
+                                <td>${flightOrder.flight.arrivalTime}</td>
                                 <td>${flightOrder.payStatusStr}</td>
                                 <td>${flightOrder.payTimeStr}</td>
                                 <td>${flightOrder.beat}</td>
                                 <td>${flightOrder.orderPrice}</td>
                                 <td class="text-center">
-                                    <a href="${pageContext.request.contextPath}/admin/getOrderInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">详情</a>
+                                    <a href="${pageContext.request.contextPath}/adminController/getOrderInfo?id=${flightOrder.id}" class="btn bg-olive btn-xs">详情</a>
                                 </td>
                             </tr>
                             </c:forEach>
