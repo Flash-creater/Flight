@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Courier+Prime:wght@400;700&display=swap");
+
+body, html {
+    height: 100%;
+    display: grid;
+    align-content: center;
+    font-family: "Courier Prime";
+    background: #ffd369
+}
+
+.airplane-ticket {
+    color: #fff;
+    display: grid;
+    align-content: start;
+    grid-template-areas:"A A" "B C" "D D";
+    grid-template-columns:auto 280px;
+    width: 100%;
+    max-width: 992px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden
+}
+
+.airplane-ticket span {
+    display: block
+}
+
+.airplane-ticket span:nth-child(1) {
+    color: #023047;
+    font-size: .75rem
+}
+
+.airplane-ticket span:nth-child(2) {
+    text-shadow: 1px 1px 0 #023047;
+    font-weight: bold;
+    font-size: .95rem
+}
+
+.header, .footer {
+    font-family: Bungee;
+    padding: 1rem;
+    background: #023047
+}
+
+.header p, .footer p {
+    margin: 0;
+    transform: skew(-15deg, 0deg)
+}
+
+.header {
+    grid-area: A
+}
+
+.footer {
+    grid-area: D;
+    text-align: right
+}
+
+.ticket-left {
+    position: relative;
+    background: #219ebc;
+    padding: 1rem;
+    grid-area: B;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:"A B" "A C" "A D";
+    grid-template-columns:3rem auto;
+    overflow: hidden
+}
+
+.ticket-left > :not(.fa-globe-europe) {
+    position: relative;
+    z-index: 1
+}
+
+.ticket-left .fa-globe-europe {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform-origin: right center;
+    transform: scale(30) translateX(20%);
+    color: rgba(255, 255, 255, 0.15)
+}
+
+.ticket-left .barcode {
+    transform-origin: top left;
+    width: 3rem;
+    height: 100%;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKCAYAAAB10jRKAAAAAXNSR0IArs4c6QAAABdJREFUGFdjYACB/////wczICwEF4sYAOhXE+3VbFS5AAAAAElFTkSuQmCC);
+    grid-area: A;
+    overflow: hidden
+}
+
+.ticket-left .route {
+    grid-area: C;
+    align-self: center
+}
+
+.ticket-left .route > * {
+    display: flex;
+    flex-direction: column
+}
+
+.ticket-left .route > *:nth-child(1) {
+    text-align: right
+}
+
+.ticket-left .route span {
+    font-family: "Courier Prime";
+    color: #023047;
+    font-size: .75rem;
+    text-shadow: none;
+    font-weight: normal
+}
+
+.ticket-left .route .fas {
+    font-size: 4vw;
+    text-shadow: 1px 1px 0 #023047;
+    transform: translateY(-0.5vw)
+}
+
+.ticket-left .route p {
+    font-size: 4vw;
+    text-shadow: 1px 1px 0 #023047
+}
+
+.ticket-left .flight-info-top {
+    grid-area: B;
+    display: flex;
+    justify-content: center;
+    gap: 2rem
+}
+
+.ticket-left .flight-info-top .name {
+    margin-right: auto
+}
+
+.ticket-left .flight-info-bottom {
+    grid-area: D;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2rem
+}
+
+.ticket-right {
+    position: relative;
+    background: #219ebc;
+    grid-area: C;
+    display: grid;
+    grid-template-areas:"A A" "B C";
+    grid-template-columns:auto 2rem;
+    padding: 1rem 1rem 1rem 1.5rem
+}
+
+.ticket-right:before {
+    content: "";
+    position: absolute;
+    top: -3rem;
+    margin-left: 0;
+    height: calc(100% + 6rem);
+    width: 0;
+    border-left: dotted .5rem #fff
+}
+
+.ticket-right .barcode {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAAXNSR0IArs4c6QAAAB5JREFUGFdjZGBgYPj///9/RkZGRhAN4oPYMHEYHwAeEQwCl1AlhQAAAABJRU5ErkJggg==);
+    grid-area: A;
+    height: 3rem;
+    margin-bottom: 1rem
+}
+
+.ticket-right .flight-info {
+    display: grid;
+    gap: .5rem;
+    grid-template-areas:"A A" "B C" "D E" "F F" "G H"
+}
+
+.ticket-right .flight-info > .name {
+    grid-area: A
+}
+
+.ticket-right .flight-info > .date {
+    grid-area: B
+}
+
+.ticket-right .flight-info > .flight {
+    grid-area: C
+}
+
+.ticket-right .flight-info > .gate {
+    grid-area: D
+}
+
+.ticket-right .flight-info > .seat {
+    grid-area: E
+}
+
+.ticket-right .flight-info > .group {
+    grid-area: F
+}
+
+.ticket-right .flight-info > .boards {
+    grid-area: G
+}
+
+.ticket-right .flight-info > .arrives {
+    grid-area: H
+}
+
+.ticket-right .route {
+    grid-area: C;
+    transform: rotate(-90deg);
+    height: 1rem;
+    margin: auto 0;
+    text-shadow: 1px -1px 0 #023047
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+    font-family: bungee
+}
+
+.route p {
+    margin: 0
+}
