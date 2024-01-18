@@ -245,9 +245,9 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 1.0.1
         </div>
-        <strong>Copyright &copy; 2020-2021 <a
+        <strong>Copyright &copy; 2023-2024 <a
                 href="http://www.baidu.cn">版权所有：何志森项目组</a>
-        </strong>地址：山西省晋中市榆次区乌金山镇明向校区 | 邮政编码：030600 | 电话：0351-5222222</footer>
+        </strong>地址：山西省晋中市榆次区乌金山镇明向校区 | 邮政编码：030600 | 电话：0351-3176104</footer>
     <!-- 底部导航 /-->
 
 </div>
