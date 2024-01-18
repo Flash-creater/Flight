@@ -95,6 +95,7 @@ public class TravellerController {
         int i = travellerService.addTraveller(traveller);
         if (i != 0) return "login/traveller";
         else {
+            request.setAttribute("err_info","注册失败");
             return "register/register";
         }
     }

@@ -31,7 +31,9 @@ public class TravellerServiceImpl implements TravellerService {
 
     @Override
     public int addTraveller(Traveller traveller) {
-        return travellerMapper.addTraveller(traveller);
+        Traveller traveller1 = travellerMapper.findByEmail(traveller.getEmail());
+        if (traveller1 != null ) return 0;
+        else return travellerMapper.addTraveller(traveller);
     }
 
     @Override
