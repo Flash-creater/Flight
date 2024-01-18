@@ -40,7 +40,7 @@ public class TravellerController {
                 cookie.setPath("/");
                 response.addCookie(cookie);
             } else {
-                //没有选择自动登陆 则关闭浏览器就销毁
+                //没有自动登陆 则关闭浏览器就销毁
                 Cookie cookie = new Cookie("auto", null);
                 cookie.setMaxAge(0);
                 cookie.setPath("/");
