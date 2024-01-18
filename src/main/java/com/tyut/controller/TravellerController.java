@@ -276,52 +276,6 @@ public class TravellerController {
         }
     }
     //旅客查找自己选择的旅行社
-    @RequestMapping("/findMyAgencies")
-    public String findMyAgencies(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        //1.根据用户id查找对应的旅行社，旅行路线
-        String tid = request.getParameter("tid");
-        List<Agency> agencyList = null;
-        try {
-            agencyList = travellerService.findAgencyOrder(tid);
-            if(agencyList.size() == 0){
-                //没有查找到对应的订单 返回500页面
-                request.setAttribute("errMsg", "您尚未任何旅行社的订单，请到【旅行社信息】-【旅行社列表】进行选择！！");
-                return "traveller/myAgency";
-            }else{
-                //查找到对应的订单，
-                request.setAttribute("agencyList", agencyList);
-                return "traveller/myAgency";
-            }
-        } catch (Exception e) {
-            return "traveller/500";
-        }
-
-    }
-
-    //旅客 查询 自己选择的旅行社的路线 的订单 的详情
-    @RequestMapping("/myAgencyOrder")
-    public String myAgencyOrder(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        //1.获取传过来的tid,rid,aid，获取响应的route订单信息
-        String tid = request.getParameter("tid");
-        String aid = request.getParameter("aid");
-        String routeId = request.getParameter("rid");
-        //2.调用service获取agencyOrder对象
-        AgencyOrder ao = null;
-        try {
-            ao = travellerService.findAgencyOrderByIds(tid, aid, routeId);
-            if(ao == null){
-                //发生错误，返回500.jsp
-                return "traveller/500";
-            }else{
-                //向myAgencyOrder-info.jsp页面传回ao对象
-                request.setAttribute("ao", ao);
-                return "traveller/myAgencyOrder-info";
-            }
-        } catch (Exception e) {
-            //发生异常，返回500.jsp
-            return "traveller/500";
-        }
-    }
 
     //旅客对所选的路线订单进行 退订操作
     @RequestMapping("/exitOrder")
