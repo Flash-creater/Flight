@@ -46,7 +46,7 @@
             <div class="col-xs-12">
                 <h2 class="page-header">
                     <i class="fa fa-globe"></i> ${flightOrder.flight.company}
-                    <small class="pull-right" >Date: <span class="time">2024/1/5</span></small>
+                    <small class="pull-right" >Date: <span class="time">2024/1/10</span></small>
                 </h2>
             </div>
             <!-- /.col -->

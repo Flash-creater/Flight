@@ -112,7 +112,7 @@
                 <div class="col-xs-12">
                     <h2 class="page-header">
                         <i class="fa fa-globe"></i> 机票预订系统.
-                        <small class="pull-right" id="time">Date: <span class="time">2/10/2014</span></small>
+                        <small class="pull-right" id="time">Date: <span class="time">1/10/2024</span></small>
                     </h2>
                 </div>
                 <!-- /.col -->
@@ -189,7 +189,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-6">
-                    <p class="lead">Amount Due <span class="time">2/10/2014</span></p>
+                    <p class="lead">Amount Due <span class="time">1/10/2024</span></p>
 
                     <div class="table-responsive">
                         <table class="table">
