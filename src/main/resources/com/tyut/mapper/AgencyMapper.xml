@@ -4,7 +4,7 @@
     <select id="selectPassword" parameterType="agency" resultType="agency">
         select * from agency where agencyName = #{agencyName} and password = #{password}
     </select>
-    <select id="findAllFlight" resultType="Flight">
+    <select id="nfidAllFlight" resultType="Flight">
         select * from flightinfo where 1=1 and flag=1 LIMIT 50
     </select>
     <select id="findFlightByCities"  resultType="Flight">

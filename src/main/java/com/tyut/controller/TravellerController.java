@@ -175,14 +175,7 @@ public class TravellerController {
     }
 
     //旅客查询所有的旅行社
-    @RequestMapping("/findAllAgency")
-    public String findAllAgency(HttpServletRequest request, HttpServletResponse response) {
-        //1.查询所有的旅行社
-        List<Agency> agencyList = travellerService.findAllAgency();
-        //将查询的结果返回页面
-        request.setAttribute("agencies", agencyList);
-        return "traveller/agency-list";
-    }
+
 
     //获取旅行社的详细信息 包括旅行社的联系人 旅行社推荐的旅游路线
     @RequestMapping("/agencyDetail")
