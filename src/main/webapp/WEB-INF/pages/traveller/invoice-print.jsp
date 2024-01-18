@@ -45,8 +45,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="page-header">
-                    <i class="fa fa-globe"></i> 机票预订系统.
-                    <small class="pull-right" >Date: <span class="time">1/10/2024</span></small>
+                    <i class="fa fa-globe"></i> ${flightOrder.flight.company}
+                    <small class="pull-right" >Date: <span class="time">2024/1/5</span></small>
                 </h2>
             </div>
             <!-- /.col -->
@@ -54,20 +54,18 @@
         <!-- info row -->
         <div class="row invoice-info">
             <div class="col-sm-4 invoice-col">
-                From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To
+                From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To
                 <address>
-                    <strong>${flightOrder.flight.departureCity}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>${flightOrder.flight.finalCity}</strong><br>
-                    ${flightOrder.flight.departureTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${flightOrder.flight.arrivalTime}<br>
-                    ${flightOrder.flight.departureAirport}, ${flightOrder.flight.dCode}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp${flightOrder.flight.arrivalAirport}, ${flightOrder.flight.aCode}<br>
+                    <strong>${flightOrder.flight.departureCity}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>${flightOrder.flight.finalCity}</strong><br>
+                    ${flightOrder.flight.departureTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${flightOrder.flight.arrivalTime}<br>
+                    ${flightOrder.flight.departureAirport} ${flightOrder.flight.dCode}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp${flightOrder.flight.arrivalAirport} ${flightOrder.flight.aCode}<br>
                 </address>
             </div>
             <!-- /.col -->
             <div class="col-sm-4 invoice-col">
                 <b>Traveller</b><br>
                 <b>Name:</b> ${flightOrder.traveller.trueName}<br>
-                <b>Email:</b> ${flightOrder.traveller.email}<br>
+                <b>ID_Number:</b> ${flightOrder.traveller.ID_Card}<br>
                 <b>Phone:</b> ${flightOrder.traveller.phone}
             </div>
             <!-- /.col -->
@@ -123,7 +121,7 @@
             </div>
             <!-- /.col -->
             <div class="col-xs-6">
-                <p class="lead">Amount Due <span class="time">1/10/2024</span></p>
+                <p class="lead">Amount Due <span class="time"><div id="currentTime"></div></span></p>
 
                 <div class="table-responsive">
                     <table class="table">
@@ -151,6 +149,8 @@
         var month = nowTime.getMonth() + 1;
         var day = nowTime.getDay() + 1;
         nowTime = year + "/" + month + "/"+day;
+        var timeString = year + "/" + month + "/"+day;
+        document.getElementById("currentTime").innerHTML = timeString;
         $(".time").html(nowTime);
         // 延迟1秒打印，等待图片载入
         setTimeout(function() {
