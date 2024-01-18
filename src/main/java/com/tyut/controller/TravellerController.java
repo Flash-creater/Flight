@@ -158,11 +158,12 @@ public class TravellerController {
 
     //旅客修改个人信息
     @RequestMapping("/saveUser")
-    public String saveUser(HttpServletRequest request, HttpServletResponse response) {
-        Traveller newTraveller = (Traveller) request.getSession().getAttribute("user");
-        boolean isTure = travellerService.save(newTraveller);
+    public String saveUser(HttpServletRequest request, HttpServletResponse response,Traveller traveller) {
+//        Traveller newTraveller = (Traveller) request.getSession().getAttribute("user");
+        System.out.println(traveller);
+        boolean isTure = travellerService.save(traveller);
         if (isTure) {
-            request.getSession().setAttribute("user", newTraveller);
+            request.getSession().setAttribute("user", traveller);
             request.setAttribute("errMsg", "保存成功！！");
             return "traveller/traveller-info";
         } else {
@@ -257,7 +258,7 @@ public class TravellerController {
             boolean isOk = travellerService.addOrder(aid, routeId, traveller.getId(), beat);
             travellerService.subBalance(traveller, price);
             Traveller newTraveller = (Traveller)request.getSession().getAttribute("user");
-            newTraveller.setBalance(traveller.getBalance() - price);
+            newTraveller.setBalance(traveller.getBalance());
             request.getSession().setAttribute("user", newTraveller);
             if(isOk){
                 //订单生成成功，返回 [我的旅行社] 界面
@@ -345,7 +346,7 @@ public class TravellerController {
 
             }
             Traveller newTraveller = (Traveller)request.getSession().getAttribute("user");
-            newTraveller.setBalance(traveller.getBalance() + price);
+            newTraveller.setBalance(traveller.getBalance());
             request.getSession().setAttribute("user", newTraveller);
 //        2.在页面中心输入退订成功，等待三秒后跳转到myAgency.jsp页面
             return "traveller/myAgency";
