@@ -6,17 +6,17 @@ pageEncoding="UTF-8" isELIgnored="false" errorPage="404.jsp"%>
 <head>
     <meta charset="UTF-8">
     <title>
-        CSS3绘制的飞机票网页代码 - www.dedemao.com
+        机票
     </title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/normalize.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"><!--图标库-->
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.css">
 </head>
 <body>
 <div class="airplane-ticket">
     <div class="ticket header">
         <p>
-            <i class="fas fa-meteor"></i>Admit One
+            <i class="fas fa-meteor"></i>${flightOrder.flight.company}
         </p>
     </div>
     <div class="ticket ticket-left">
@@ -24,28 +24,28 @@ pageEncoding="UTF-8" isELIgnored="false" errorPage="404.jsp"%>
         <div class="barcode"></div>
         <div class="flight-info-top">
             <div class="name">
-                <span>姓名：:</span><span>${flightOrder.traveller.trueName}</span>
+                <span>姓名:</span><span>${flightOrder.traveller.trueName}</span>
             </div>
             <div class="date">
-                <span>日期:</span><span>2021/02/01</span>
+                <span>日期:</span><span>${flightOrder.payTimeStr}</span>
             </div>
             <div class="flight">
                 <span>航班:</span><span>${flightOrder.flight.flightId}</span>
             </div>
             <div class="gate">
-                <span>头等舱:</span><span>B3</span>
+                <span>${flightOrder.beat}</span><span>B3</span>
             </div>
         </div>
         <div class="route">
             <div>
                 <p>
-                    LHR
-                </p><span>伦敦希思罗机场</span>
+                    ${flightOrder.flight.dCode}
+                </p><span>${flightOrder.flight.departureCity}:${flightOrder.flight.departureAirport}</span>
             </div><i class="fas fa-plane"></i>
             <div>
                 <p>
-                    IBZ
-                </p><span>伊比萨机场</span>
+                    ${flightOrder.flight.aCode}
+                </p><span>${flightOrder.flight.finalCity}:${flightOrder.flight.arrivalAirport}</span>
             </div>
         </div>
         <div class="flight-info-bottom">
@@ -53,13 +53,13 @@ pageEncoding="UTF-8" isELIgnored="false" errorPage="404.jsp"%>
                 <span>座位:</span><span>11E</span>
             </div>
             <div class="group">
-                <span>组:</span><span>3</span>
+                <span>机型:</span><span>${flightOrder.flight.craftType}</span>
             </div>
             <div class="boards">
-                <span>起飞时间:</span><span>10:25</span>
+                <span>起飞时间:</span><span>${flightOrder.flight.departureTime}</span>
             </div>
             <div class="arrives">
-                <span>到达时间:</span><span>13:05</span>
+                <span>到达时间:</span><span>${flightOrder.flight.arrivalTime}</span>
             </div>
         </div>
     </div>
@@ -67,44 +67,60 @@ pageEncoding="UTF-8" isELIgnored="false" errorPage="404.jsp"%>
         <div class="barcode"></div>
         <div class="flight-info">
             <div class="name">
-                <span>Name:</span><span>Neville Longbottom</span>
+                <span>Name:</span><span>${flightOrder.traveller.trueName}</span>
             </div>
             <div class="date">
-                <span>Date:</span><span>2021/02/01</span>
+                <span>Date:</span><span>${flightOrder.payTimeStr}</span>
             </div>
             <div class="flight">
-                <span>Flight:</span><span>2005</span>
+                <span>Flight:</span><span>${flightOrder.flight.flightId}</span>
             </div>
             <div class="gate">
-                <span>Gate:</span><span>B3</span>
+                <span>Type:</span><span>${flightOrder.flight.craftType}</span>
             </div>
             <div class="seat">
                 <span>Seat:</span><span>11E</span>
             </div>
             <div class="group">
-                <span>Group:</span><span>3</span>
+                <span>ID_Number:</span><span>${flightOrder.traveller.ID_Card}</span>
             </div>
             <div class="boards">
-                <span>Boards:</span><span>10:25</span>
+                <span>Departures:</span><span>${flightOrder.flight.departureTime}</span>
             </div>
             <div class="arrives">
-                <span>Arrives:</span><span>13:05</span>
+                <span>Arrives:</span><span>${flightOrder.flight.arrivalTime}</span>
             </div>
         </div>
         <div class="route">
             <p>
-                LHR
+                ${flightOrder.flight.dCode}
             </p><i class="fas fa-plane"></i>
             <p>
-                IBZ
+                ${flightOrder.flight.aCode}
             </p>
         </div>
     </div>
     <div class="ticket footer">
         <p>
-            <i class="fas fa-meteor"></i>dedemao.COM
+            <i class="fas fa-meteor"></i>${flightOrder.agency.agencyName}旅行社
         </p>
     </div>
 </div>
+<script src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script>
+    $(document).ready(function() {
+        //获取当前的时间
+        var nowTime = new Date();
+        var year = nowTime.getFullYear();
+        var month = nowTime.getMonth() + 1;
+        var day = nowTime.getDay() + 1;
+        nowTime = year + "/" + month + "/"+day;
+        $(".time").html(nowTime);
+        // 延迟1秒打印，等待图片载入
+        setTimeout(function() {
+            window.print();
+        }, 1000);
+    });
+</script>
 </body>
 </html>

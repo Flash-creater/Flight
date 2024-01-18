@@ -455,7 +455,7 @@ public class TravellerController {
         FlightOrder fo = null;
         try {
             fo = travellerService.findFlightOrderById(id);
-            System.out.println(fo);
+            System.out.println(fo.getPayStatusStr());
             //3.将对应的航班信息传递给ticket-info.jsp页面
             request.setAttribute("flightOrder", fo);
             return "traveller/invoice-print";

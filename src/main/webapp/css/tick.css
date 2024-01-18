@@ -1,0 +1,9 @@
+/*登机牌css*/
+.ticket {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    font-family: "Microsoft YaHei";
+}
