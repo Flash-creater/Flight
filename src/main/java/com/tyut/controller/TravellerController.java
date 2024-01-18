@@ -40,7 +40,7 @@ public class TravellerController {
                 cookie.setPath("/");
                 response.addCookie(cookie);
             } else {
-                //没有选择自动登陆 则关闭浏览器就销毁
+                //没有自动登陆 则关闭浏览器就销毁
                 Cookie cookie = new Cookie("auto", null);
                 cookie.setMaxAge(0);
                 cookie.setPath("/");
@@ -183,6 +183,7 @@ public class TravellerController {
         request.setAttribute("agencies", agencyList);
         return "traveller/agency-list";
     }
+
 
     //获取旅行社的详细信息 包括旅行社的联系人 旅行社推荐的旅游路线
     @RequestMapping("/agencyDetail")
