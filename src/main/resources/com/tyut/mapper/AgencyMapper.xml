@@ -4,11 +4,11 @@
     <select id="selectPassword" parameterType="agency" resultType="agency">
         select * from agency where agencyName = #{agencyName} and password = #{password}
     </select>
-    <select id="nfidAllFlight" resultType="Flight">
-        select * from flightinfo where 1=1 and flag=1 LIMIT 50
+    <select id="findAllFlight" resultType="Flight">
+        select * from flightinfo where 1=1  LIMIT 50
     </select>
     <select id="findFlightByCities"  resultType="Flight">
-        select * from flightinfo where departureCity=#{departureCity} and finalCity = #{finalCity} and flag=1
+        select * from flightinfo where departureCity=#{departureCity} and finalCity = #{finalCity}
     </select>
     <insert id="addOrder" >
         insert into flightorder (aid, tid, routeId, flightId, payStatus, orderPrice, beat, payTime) values (#{aid},#{tid},#{routeId},#{flightId},#{payStatus},#{orderPrice},#{beat},#{payTime})

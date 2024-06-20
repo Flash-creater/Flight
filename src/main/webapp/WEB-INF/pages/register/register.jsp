@@ -132,7 +132,7 @@
         //1.获取用户值
         var password = $("#password").val();
         //2.定义正则
-        var reg_password = /[a-zA-Z0-9]{6,}/;
+        var reg_password = /[a-zA-Z0-9]{8,}/;
         //3.判断 给出提示
         var flag = reg_password.test(password);
         if(flag){
@@ -238,7 +238,7 @@
         //当表单 提交时 调用所有的 校验方法
         $("#registerForm").submit(function(){
             //1.发送异步数据请求
-            if(checkPassword()&&checkEmail()&&checkName()&&checkUsername()&&checkPhone()){
+            if(checkPassword()&&checkEmail()&&checkName()&&checkUsername()&&checkPhone()&&testid()){
                 return true;
             }else{
                 //方法返回false不提交表单，也不跳转
@@ -253,7 +253,7 @@
         $("#email").blur(checkEmail);
         $("#trueName").blur(checkName);
         $("#phone").blur(checkPhone);
-        //$("#ID_Card").blur(testid);
+        $("#ID_Card").blur(testid);
     });
 
 </script>
