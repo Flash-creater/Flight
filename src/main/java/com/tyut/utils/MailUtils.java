@@ -13,8 +13,8 @@ import java.util.Properties;
  */
 
 public class MailUtils {
-    private static final String USER = "hezhisen5506@link.tyut.edu.cn"; // 发件人称号，同邮箱地址
-    private static final String PASSWORD = "IHuj0652"; // 如果是qq邮箱可以使户端授权码，或者登录密码
+    private static final String USER = "hzs_belief0652@qq.com"; // 发件人称号，同邮箱地址
+    private static final String PASSWORD = "euxcmbucvxptdbid"; // 如果是qq邮箱可以使户端授权码，或者登录密码
 
     /**
      *
@@ -33,7 +33,7 @@ public class MailUtils {
             props.put("mail.smtp.port", "465");
             props.put("mail.smtp.ssl.enable", true);
             props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.host", "smtp.tyut.edu.cn");
+            props.put("mail.smtp.host", "smtp.qq.com");
 
             // 发件人的账号
             props.put("mail.user", USER);
@@ -78,7 +78,7 @@ public class MailUtils {
     }
 
     public static void main(String[] args) throws Exception { // 做测试用
-        MailUtils.sendMail("3385058894@qq.com","你好，这是一个测试邮件，不用回复。","测试邮件");
+        MailUtils.sendMail("981274186@qq.com","你好，这是一个测试邮件，不用回复。","测试邮件");
         System.out.println("发送成功");
 
     }
